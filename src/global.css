@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+@layer base {
+  * {
+    @apply overscroll-none;
+    /* @apply border-neutral-300; */
+    @apply scroll-smooth;
+  }
+  body {
+    @apply bg-zinc-950 text-zinc-300 antialiased;
+  }
+  /* a {
+    @apply cursor-pointer transition-colors;
+  } */
+}
+
+/* @utility container {
+  margin-inline: auto;
+} */
