@@ -1,0 +1,24 @@
+{
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "always"
+  },
+
+  "tailwindCSS.experimental.classRegex": [
+    // https://github.com/paolotiu/tailwind-intellisense-regex-list
+    ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+    ["(?:twMerge|twJoin|cn)\\(([^;]*)[\\);]", "[`'\"`]([^'\"`;]*)[`'\"`]"]
+  ],
+
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "html",
+    "json",
+    "astro"
+  ],
+  "eslint.format.enable": true
+}
