@@ -1,7 +1,7 @@
 ---
-import Tag from "./ui/tag.astro";
+import Badge from "./ui/badge.astro";
 
-const tags = [
+const labels = [
   "react",
   "typescript",
   "tailwind",
@@ -20,6 +20,6 @@ const tags = [
   <h2 class="text-lg font-medium text-zinc-100">Stack</h2>
 
   <div class="flex flex-wrap items-center gap-2 font-mono">
-    {tags.map((tag) => <Tag>{tag}</Tag>)}
+    {labels.map((label) => <Badge>{label}</Badge>)}
   </div>
 </div>

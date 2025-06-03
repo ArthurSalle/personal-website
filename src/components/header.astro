@@ -1,6 +1,6 @@
 ---
 import profilePic from "@/assets/arthur.webp";
-import Chip from "./ui/chip.astro";
+import LinkButton from "./ui/link-button.astro";
 ---
 
 <header class="flex w-full max-w-xl flex-col gap-12">
@@ -26,14 +26,15 @@ import Chip from "./ui/chip.astro";
     </p>
 
     <div class="flex flex-wrap items-center gap-3">
-      <Chip href="https://github.com/ArthurSalle">Github</Chip>
-      <Chip href="https://www.linkedin.com/in/arthur-sall%C3%A9/">LinkedIn</Chip
+      <LinkButton href="https://github.com/ArthurSalle">Github</LinkButton>
+      <LinkButton href="https://www.linkedin.com/in/arthur-sall%C3%A9/"
+        >LinkedIn</LinkButton
       >
-      <Chip href="https://bsky.app/profile/saltyarthur.bsky.social"
-        >Bluesky</Chip
+      <LinkButton href="https://bsky.app/profile/saltyarthur.bsky.social"
+        >Bluesky</LinkButton
       >
-      <Chip href="https://www.linkedin.com/company/undefined-hq/"
-        >Undefined HQ</Chip
+      <LinkButton href="https://www.linkedin.com/company/undefined-hq/"
+        >Undefined HQ</LinkButton
       >
     </div>
   </div>
