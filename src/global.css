@@ -3,11 +3,12 @@
 @layer base {
   * {
     @apply overscroll-none;
-    /* @apply border-neutral-300; */
+    @apply border-zinc-200;
     @apply scroll-smooth;
+    @apply selection:bg-rose-800;
   }
   body {
-    @apply bg-zinc-950 text-zinc-300 antialiased;
+    @apply bg-zinc-950 text-white antialiased;
   }
   /* a {
     @apply cursor-pointer transition-colors;

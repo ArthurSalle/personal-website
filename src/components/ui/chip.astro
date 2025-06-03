@@ -1,0 +1,18 @@
+---
+import Arrow from "@/assets/arrow.svg";
+
+type Props = {
+  href: string;
+};
+
+const { href } = Astro.props;
+---
+
+<a
+  href={href}
+  target="_blank"
+  class="flex w-fit shrink-0 cursor-pointer items-center gap-1 rounded-full bg-zinc-800 px-2.5 py-1 text-sm text-zinc-100 transition-colors duration-300 select-none hover:bg-zinc-700"
+>
+  <slot />
+  <img src={Arrow.src} alt="arrow icon" class="size-3 text-white" />
+</a>

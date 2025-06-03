@@ -1,0 +1,39 @@
+---
+import profilePic from "@/assets/arthur.webp";
+import Chip from "./ui/chip.astro";
+---
+
+<header class="flex w-full max-w-xl flex-col gap-12">
+  <div class="flex items-center justify-between gap-4">
+    <div>
+      <h1 class="text-2xl font-medium md:text-3xl">Arthur Sallé</h1>
+      <h2 class="text-zinc-500 md:text-lg">Frontend Developer Freelance</h2>
+    </div>
+    <img
+      src={profilePic.src}
+      alt="Arthur Sallé"
+      height={96}
+      width={96}
+      class="aspect-square size-16 rounded-full border-2 object-cover shadow-xs shadow-zinc-500 select-none md:size-20"
+    />
+  </div>
+
+  <div class="flex flex-col gap-6">
+    <p class="text-zinc-400">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed reprehenderit
+      veritatis obcaecati, tempore, magnam debitis a libero optio id totam iure
+      iusto eveniet voluptas inventore facere quis minus magni harum.
+    </p>
+    <div class="flex items-center gap-3">
+      <Chip href="https://github.com/ArthurSalle">Github</Chip>
+      <Chip href="https://www.linkedin.com/in/arthur-sall%C3%A9/">LinkedIn</Chip
+      >
+      <Chip href="https://bsky.app/profile/saltyarthur.bsky.social"
+        >Bluesky</Chip
+      >
+      <Chip href="https://www.linkedin.com/company/undefined-hq/"
+        >Undefined HQ</Chip
+      >
+    </div>
+  </div>
+</header>
