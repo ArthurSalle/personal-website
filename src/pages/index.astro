@@ -1,10 +1,15 @@
 ---
 import Header from "@/components/header.astro";
+import Projects from "@/components/projects.astro";
 import Layout from "@/layouts/layout.astro";
 ---
 
 <Layout>
-  <main class="mx-auto flex flex-col items-center px-4 pt-12 pb-4 md:pt-20">
+  <main
+    class="mx-auto flex flex-col items-center gap-24 px-4 pt-12 pb-4 md:pt-20"
+  >
     <Header />
+
+    <Projects />
   </main>
 </Layout>
