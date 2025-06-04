@@ -1,0 +1,35 @@
+---
+type Props = {
+  title: string;
+  description: string;
+  imageUrl: string;
+  linkTo?: string;
+};
+
+const { title, description, imageUrl }: Props = Astro.props;
+---
+
+<a href="#" class="flex cursor-pointer flex-col gap-2">
+  {
+    imageUrl ? (
+      <img
+        src={imageUrl}
+        alt={title}
+        class="h-32 w-full rounded-md object-cover"
+      />
+    ) : (
+      <div class="h-32 w-full rounded-md bg-zinc-200" />
+    )
+  }
+
+  <div>
+    <h3 class="font-manrope font-medium text-zinc-100">{title}</h3>
+    <p class="text-sm text-zinc-400">
+      {
+        description
+          ? description
+          : "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis incidunt fuga, sint officiis aspernatur."
+      }
+    </p>
+  </div>
+</a>

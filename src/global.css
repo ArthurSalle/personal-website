@@ -6,7 +6,7 @@
     @apply overscroll-none;
     @apply border-zinc-200;
     @apply scroll-smooth;
-    @apply selection:bg-rose-800;
+    @apply selection:bg-blue-400/50;
   }
   body {
     @apply bg-zinc-950 text-zinc-400 antialiased;
