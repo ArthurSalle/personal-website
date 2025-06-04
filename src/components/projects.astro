@@ -7,35 +7,34 @@ const projects = [
     description:
       "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis incidunt fuga, sint officiis aspernatur.",
     imageUrl: "",
-    linkTo: "",
   },
   {
     title: "Teamz Tennis",
     description:
       "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis incidunt fuga, sint officiis aspernatur.",
     imageUrl: "",
-    linkTo: "",
+    url: "https://www.teamz-tennis.com/",
   },
   {
     title: "Ma Formule Leasing",
     description:
       "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis incidunt fuga, sint officiis aspernatur.",
     imageUrl: "",
-    linkTo: "",
+    url: "https://www.maformuleleasing.fr/",
   },
   {
     title: "Vaulty",
     description:
       "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis incidunt fuga, sint officiis aspernatur.",
     imageUrl: "",
-    linkTo: "",
+    url: "https://vaulty.vercel.app/",
   },
   {
     title: "Polenta & Linen",
     description:
       "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis incidunt fuga, sint officiis aspernatur.",
     imageUrl: "",
-    linkTo: "",
+    url: "https://www.polentaandlinen.com/",
   },
 ];
 ---
@@ -50,6 +49,7 @@ const projects = [
           title={project.title}
           description={project.description}
           imageUrl={project.imageUrl}
+          url={project.url}
         />
       ))
     }

@@ -3,13 +3,13 @@ type Props = {
   title: string;
   description: string;
   imageUrl: string;
-  linkTo?: string;
+  url?: string;
 };
 
-const { title, description, imageUrl }: Props = Astro.props;
+const { title, description, imageUrl, url }: Props = Astro.props;
 ---
 
-<a href="#" class="flex cursor-pointer flex-col gap-2">
+<a href={url} target="_blank" class="flex cursor-pointer flex-col gap-2">
   {
     imageUrl ? (
       <img
