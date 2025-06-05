@@ -1,33 +1,55 @@
 ---
-type Props = {
+type Project = {
   title: string;
   description: string;
-  imageUrl: string;
+  imageUrl: ImageMetadata["src"];
   url?: string;
+  bgClass?: string;
+  isWip?: boolean;
 };
 
-const { title, description, imageUrl, url }: Props = Astro.props;
+type Props = {
+  project: Project;
+};
+
+const { project }: Props = Astro.props;
 ---
 
-<a href={url} target="_blank" class="flex cursor-pointer flex-col gap-2">
+<a
+  href={project.url}
+  target="_blank"
+  class={`flex flex-col gap-2 ${project.url ? "cursor-pointer" : "cursor-default"}`}
+>
   {
-    imageUrl ? (
-      <img
-        src={imageUrl}
-        alt={title}
-        class="h-32 w-full rounded-md object-cover"
-      />
+    !project.isWip ? (
+      project.imageUrl ? (
+        <div
+          class={`flex h-44 items-center justify-center rounded-md ${project.bgClass || "bg-zinc-100"}`}
+        >
+          <img
+            src={project.imageUrl}
+            alt={project.title}
+            class="h-32 rounded-xs object-contain"
+          />
+        </div>
+      ) : (
+        <div class="h-44 w-full rounded-md bg-zinc-100" />
+      )
     ) : (
-      <div class="h-32 w-full rounded-md bg-zinc-200" />
+      <div class="flex h-44 items-center justify-center rounded-md bg-[#FFB300]">
+        <span class="font-anton text-lg font-medium text-zinc-800">
+          WORK IN PROGRESS
+        </span>
+      </div>
     )
   }
 
   <div>
-    <h3 class="font-manrope font-medium text-zinc-100">{title}</h3>
+    <h3 class="font-manrope font-medium text-zinc-100">{project.title}</h3>
     <p class="text-sm text-zinc-400">
       {
-        description
-          ? description
+        project.description
+          ? project.description
           : "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis incidunt fuga, sint officiis aspernatur."
       }
     </p>
