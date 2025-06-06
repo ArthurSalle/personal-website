@@ -1,19 +1,20 @@
 ---
 import ProjectCard from "./ui/project-card.astro";
 import TeamzPreview from "@/assets/c-teamz-preview.webp";
+import SimPreview from "@/assets/c-sim-preview.webp";
+import VaultyPreview from "@/assets/c-vaulty-preview.webp";
 
 const projects = [
   {
     title: "Pear to Park",
-    description:
-      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis incidunt fuga, sint officiis aspernatur.",
+    description: "Project in development. Details coming soon.",
     imageUrl: "",
     isWip: true,
   },
   {
     title: "Teamz Tennis",
     description:
-      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis incidunt fuga, sint officiis aspernatur.",
+      "A platform that connects tennis clubs and players to organize and manage team matches and tournaments.",
     imageUrl: TeamzPreview.src,
     url: "https://www.teamz-tennis.com/",
     bgClass: "bg-[#FE5000]",
@@ -21,16 +22,18 @@ const projects = [
   {
     title: "Ma Formule Leasing",
     description:
-      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis incidunt fuga, sint officiis aspernatur.",
-    imageUrl: "",
+      "A leasing simulator designed to help businesses outsource the financing of their equipment in a simple and efficient way.",
+    imageUrl: SimPreview.src,
     url: "https://www.maformuleleasing.fr/",
+    bgClass: "bg-[#DBEAFE]",
   },
   {
     title: "Vaulty",
     description:
-      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis incidunt fuga, sint officiis aspernatur.",
-    imageUrl: "",
+      "A password manager that allows you to securely store and manage your passwords and sensitive information.",
+    imageUrl: VaultyPreview.src,
     url: "https://vaulty.vercel.app/",
+    bgClass: "bg-amber-500",
   },
 ];
 ---
