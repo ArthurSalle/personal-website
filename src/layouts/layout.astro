@@ -1,5 +1,11 @@
 ---
 import "../global.css";
+
+const siteName = "arthur-salle.fr";
+const domain = "https://arthur-salle.fr";
+const title = "Arthur Sallé | Frontend Developer";
+const description =
+  "Arthur Sallé, a frontend developer based in France, specializing in building modern web applications with a focus on user experience and performance.";
 ---
 
 <!doctype html>
@@ -10,12 +16,23 @@ import "../global.css";
     <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <meta name="generator" content={Astro.generator} />
-    <title>Arthur Sallé | Frontend Developer</title>
-    <meta
-      name="description"
-      content="Arthur Sallé, a frontend developer based in France, specializing in building modern web applications with a focus on user experience and performance."
-    />
+    <title>{title}</title>
+    <meta name="description" content={description} />
     <meta name="author" content="Arthur Sallé" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={domain} />
+    <meta property="og:title" content={`${title} | ${siteName}`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={`${domain}/og-img.webp`} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={domain} />
+    <meta property="twitter:title" content={`${title} | ${siteName}`} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={`${domain}/og-img.webp`} />
   </head>
   <body>
     <slot />
