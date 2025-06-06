@@ -17,7 +17,7 @@ const { project }: Props = Astro.props;
 
 <a
   href={project.url}
-  target="_blank"
+  target={project.isWip ? undefined : "_blank"}
   class={`flex flex-col gap-2 ${project.url ? "cursor-pointer" : "cursor-default"}`}
 >
   {
