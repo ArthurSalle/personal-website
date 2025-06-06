@@ -1,7 +1,8 @@
 ---
 import "../global.css";
 
-const siteName = "arthur-salle.fr";
+import Analytics from "@vercel/analytics/astro";
+
 const domain = "https://arthur-salle.fr";
 const title = "Arthur Sallé | Frontend Developer";
 const description =
@@ -33,6 +34,8 @@ const description =
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={`${domain}/c-og-img.webp`} />
+
+    <Analytics />
   </head>
   <body>
     <slot />
