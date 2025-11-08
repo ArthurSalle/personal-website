@@ -1,17 +1,19 @@
 ---
 import ProjectCard from "./ui/project-card.astro";
-import TeamzPreview from "@/assets/c-teamz-preview.webp";
-import SimPreview from "@/assets/c-sim-preview.webp";
-import VaultyPreview from "@/assets/c-vaulty-preview.webp";
-import VoilaPreview from "@/assets/c-voila-preview.webp";
+import TeamzPreview from "@/assets/c-teamz.webp";
+import SimPreview from "@/assets/c-mfl.webp";
+import VaultyPreview from "@/assets/c-vaulty.webp";
+import VoilaPreview from "@/assets/c-voila.webp";
+import P2Preview from "@/assets/c-p2p.webp";
 
 const projects = [
   {
-    title: "Peer to Park",
-    description: "Project in development. Details coming soon.",
-    imageUrl: "",
-    url: "",
-    isWip: true,
+    title: "Peer2Park",
+    description:
+      "A platform enabling property owners to rent out their parking spaces in Dubaï seamlessly.",
+    imageUrl: P2Preview.src,
+    url: "https://peer2parkdubai.com/",
+    bgClass: "bg-[#cfd9fc]",
   },
   {
     title: "Voilà Creators",
@@ -19,7 +21,7 @@ const projects = [
       "A creator dashboard for travel influencers to design, publish and sell premium guides, including analytics and backoffice management.",
     imageUrl: VoilaPreview.src,
     url: "https://voilacreators.com/",
-    bgClass: "bg-[#FFE9D6]",
+    bgClass: "bg-[#fc3838]",
   },
   {
     title: "Teamz Tennis",
@@ -30,11 +32,11 @@ const projects = [
     bgClass: "bg-[#FE5000]",
   },
   {
-    title: "Ma Formule Leasing",
+    title: "MaFormuleLeasing.fr",
     description:
       "A leasing simulator designed to help businesses outsource the financing of their equipment in a simple and efficient way.",
     imageUrl: SimPreview.src,
-    url: "https://www.maformuleleasing.fr/",
+    url: "https://www.maformuleleasing.fr/sante",
     bgClass: "bg-[#DBEAFE]",
   },
   {
