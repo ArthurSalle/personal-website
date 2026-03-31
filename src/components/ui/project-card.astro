@@ -5,6 +5,7 @@ type Project = {
   imageUrl: ImageMetadata["src"];
   url?: string;
   bgClass?: string;
+  imgClass?: string;
   isWip?: boolean;
 };
 
@@ -17,7 +18,8 @@ const { project }: Props = Astro.props;
 
 <a
   href={project.url}
-  target={project.isWip ? undefined : "_blank"}
+  target="_blank"
+  rel="noopener noreferrer"
   class={`flex flex-col gap-2 ${project.url ? "cursor-pointer" : "cursor-default"}`}
 >
   {
@@ -29,7 +31,7 @@ const { project }: Props = Astro.props;
           <img
             src={project.imageUrl}
             alt={project.title}
-            class="h-32 rounded-xs object-contain"
+            class={`${project.imgClass || "h-32"} rounded-xs object-contain`}
             height="128"
             width="207"
           />
@@ -38,9 +40,20 @@ const { project }: Props = Astro.props;
         <div class="h-44 w-full rounded-md bg-zinc-100" />
       )
     ) : (
-      <div class="flex h-44 items-center justify-center rounded-md bg-[#FFB300]">
-        <span class="font-anton text-lg font-medium text-zinc-800">
-          WORK IN PROGRESS
+      <div
+        class={`relative flex h-44 items-center justify-center rounded-md ${project.bgClass || "bg-zinc-100"}`}
+      >
+        {project.imageUrl && (
+          <img
+            src={project.imageUrl}
+            alt={project.title}
+            class="h-20 rounded-xs object-contain"
+            height="80"
+            width="130"
+          />
+        )}
+        <span class="absolute right-2 bottom-2 rounded-full bg-amber-400 px-2.5 py-0.5 font-manrope text-xs font-semibold text-zinc-900">
+          COMING SOON
         </span>
       </div>
     )
