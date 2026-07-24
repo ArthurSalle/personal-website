@@ -1,0 +1,137 @@
+---
+import { Image } from "astro:assets";
+
+import type { CaseStudy } from "@/data/projects";
+import { getLocale, useTranslations } from "@/i18n/ui";
+import Badge from "./ui/badge.astro";
+import LinkButton from "./ui/link-button.astro";
+
+type Props = {
+  project: CaseStudy;
+};
+
+const { project }: Props = Astro.props;
+const locale = getLocale(Astro.currentLocale);
+const t = useTranslations(locale);
+const homeUrl = locale === "fr" ? "/fr/" : "/";
+const enUrl = `/projects/${project.slug}/`;
+const frUrl = `/fr/projects/${project.slug}/`;
+
+// Rend les liens markdown [label](url) présents dans les textes des études de cas
+function renderLinks(text: string): string {
+  return text.replace(
+    /\[([^\]]+)\]\(([^)]+)\)/g,
+    '<a href="$2" target="_blank" rel="noopener noreferrer" class="text-zinc-300 underline underline-offset-2 transition-colors duration-200 hover:text-white">$1</a>',
+  );
+}
+---
+
+<article class="flex w-full max-w-xl flex-col gap-10">
+  <div class="flex flex-col gap-6">
+    <div class="flex items-center justify-between gap-4">
+      <a
+        href={homeUrl}
+        class="w-fit text-sm text-zinc-500 transition-colors duration-200 hover:text-zinc-100"
+        >← {t("case.back")}</a
+      >
+
+      <nav class="flex items-center gap-1 text-sm text-zinc-500">
+        <a
+          href={enUrl}
+          class={`rounded px-1.5 py-0.5 transition-colors duration-200 hover:text-zinc-100 ${locale === "en" ? "text-zinc-100" : ""}`}
+          >EN</a
+        >
+        <span class="text-zinc-700">/</span>
+        <a
+          href={frUrl}
+          class={`rounded px-1.5 py-0.5 transition-colors duration-200 hover:text-zinc-100 ${locale === "fr" ? "text-zinc-100" : ""}`}
+          >FR</a
+        >
+      </nav>
+    </div>
+
+    <div class="flex flex-col gap-1">
+      <h1 class="font-manrope text-2xl font-medium text-zinc-100 md:text-3xl">
+        {project.title}
+      </h1>
+      <p class="text-zinc-500 md:text-lg">{project.tagline[locale]}</p>
+    </div>
+
+    {
+      project.image && (
+        <div class="relative h-64 overflow-hidden rounded-md border border-zinc-800 bg-zinc-900">
+          <div
+            class="absolute inset-0"
+            style={`background: radial-gradient(120% 90% at 50% 0%, ${project.accent}2e, transparent 65%);`}
+          />
+          <Image
+            src={project.image}
+            alt={project.title}
+            width={1100}
+            format="webp"
+            class="absolute inset-x-8 top-8 h-[calc(100%-2rem)] w-[calc(100%-4rem)] rounded-t-sm border border-zinc-700/60 object-cover object-top shadow-2xl shadow-black/50"
+          />
+        </div>
+      )
+    }
+  </div>
+
+  <section class="flex flex-col gap-2">
+    <h2 class="font-manrope text-lg font-semibold text-zinc-100">
+      {t("case.context")}
+    </h2>
+    <p set:html={renderLinks(project.context[locale])} />
+  </section>
+
+  <section class="flex flex-col gap-2">
+    <h2 class="font-manrope text-lg font-semibold text-zinc-100">
+      {t("case.role")}
+    </h2>
+    <p set:html={renderLinks(project.role[locale])} />
+  </section>
+
+  {
+    project.decisions && (
+      <section class="flex flex-col gap-2">
+        <h2 class="font-manrope text-lg font-semibold text-zinc-100">
+          {t("case.decisions")}
+        </h2>
+        <ul class="flex list-disc flex-col gap-2 pl-5 marker:text-zinc-600">
+          {project.decisions[locale].map((item) => (
+            <li set:html={renderLinks(item)} />
+          ))}
+        </ul>
+      </section>
+    )
+  }
+
+  <section class="flex flex-col gap-2">
+    <h2 class="font-manrope text-lg font-semibold text-zinc-100">
+      {t("case.highlights")}
+    </h2>
+    <ul class="flex list-disc flex-col gap-2 pl-5 marker:text-zinc-600">
+      {
+        project.highlights[locale].map((item) => (
+          <li set:html={renderLinks(item)} />
+        ))
+      }
+    </ul>
+  </section>
+
+  <section class="flex flex-col gap-3">
+    <h2 class="font-manrope text-lg font-semibold text-zinc-100">
+      {t("case.stack")}
+    </h2>
+    <div class="flex flex-wrap items-center gap-2 font-mono">
+      {project.stack.map((label) => <Badge>{label}</Badge>)}
+    </div>
+  </section>
+
+  {
+    project.url && (
+      <div>
+        <LinkButton href={project.url}>{t("case.visit")}</LinkButton>
+      </div>
+    )
+  }
+</article>

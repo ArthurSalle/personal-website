@@ -1,51 +1,56 @@
+---
+import { experiences } from "@/data/experiences";
+import { getLocale, useTranslations } from "@/i18n/ui";
+
+const locale = getLocale(Astro.currentLocale);
+const t = useTranslations(locale);
+---
+
 <div class="flex w-full max-w-xl flex-col gap-4">
-  <h2 class="font-manrope text-lg font-semibold text-white">Experiences</h2>
+  <h2 class="font-manrope text-lg font-semibold text-white">{t("xp.title")}</h2>
 
   <div class="flex flex-col gap-2">
-    <div
-      class="flex justify-between gap-4 rounded-xl border border-zinc-800 p-4"
-    >
-      <div class="flex flex-col">
-        <span class="font-manrope font-medium text-zinc-100"
-          >Fullstack Developer</span
-        >
-        <span class="text-sm">Freelance</span>
-      </div>
-      <div class="flex shrink-0 flex-col items-end text-sm">
-        <span>2024 - Present</span>
-      </div>
-    </div>
-
-    <div
-      class="flex justify-between gap-4 rounded-xl border border-zinc-800 p-4"
-    >
-      <div class="flex flex-col">
-        <span class="font-manrope font-medium text-zinc-100"
-          >Frontend Developer</span
-        >
-        <a
-          href="https://searocco.studio/"
-          target="_blank"
-          class="flex items-center gap-1 text-sm transition-colors duration-200 hover:text-zinc-100 [&_svg]:size-2.5 [&_svg]:stroke-zinc-400 [&_svg]:transition-colors [&_svg]:duration-200 hover:[&_svg]:stroke-zinc-100"
-          >Searocco Studio
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="lucide lucide-move-up-right-icon lucide-move-up-right"
-            ><path d="M13 5H19V11"></path><path d="M19 5L5 19"></path></svg
-          >
-        </a>
-      </div>
-      <div class="flex shrink-0 flex-col items-end text-sm">
-        <span>2022-2023</span>
-      </div>
-    </div>
+    {
+      experiences.map((xp) => (
+        <div class="flex flex-col gap-2 rounded-xl border border-zinc-800 p-4">
+          <div class="flex justify-between gap-4">
+            <div class="flex flex-col">
+              <span class="font-manrope font-medium text-zinc-100">
+                {xp.role[locale]}
+              </span>
+              {xp.url ? (
+                <a
+                  href={xp.url}
+                  target="_blank"
+                  class="flex items-center gap-1 text-sm transition-colors duration-200 hover:text-zinc-100 [&_svg]:size-2.5 [&_svg]:stroke-zinc-400 [&_svg]:transition-colors [&_svg]:duration-200 hover:[&_svg]:stroke-zinc-100"
+                >
+                  {xp.company}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M13 5H19V11" />
+                    <path d="M19 5L5 19" />
+                  </svg>
+                </a>
+              ) : (
+                <span class="text-sm">{xp.company}</span>
+              )}
+            </div>
+            <div class="flex shrink-0 flex-col items-end text-sm">
+              <span>{xp.period[locale]}</span>
+            </div>
+          </div>
+          <p class="text-sm text-zinc-400">{xp.description[locale]}</p>
+        </div>
+      ))
+    }
   </div>
 </div>

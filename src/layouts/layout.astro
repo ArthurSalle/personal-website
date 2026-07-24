@@ -3,14 +3,29 @@ import "../global.css";
 
 import Analytics from "@vercel/analytics/astro";
 
+import { getLocale, useTranslations } from "@/i18n/ui";
+
 const domain = "https://arthur-salle.fr";
-const title = "Arthur Sallé | Fullstack Product Developer";
-const description =
-  "Arthur Sallé, a fullstack product developer based in Angers, France. I architect and build digital products end-to-end, from concept to production.";
+const locale = getLocale(Astro.currentLocale);
+const t = useTranslations(locale);
+
+const rawPathname = Astro.url.pathname;
+const pathname = rawPathname.endsWith("/") ? rawPathname : `${rawPathname}/`;
+const enPath = pathname.startsWith("/fr/") ? pathname.slice(3) : pathname;
+const frPath = pathname.startsWith("/fr/") ? pathname : `/fr${pathname}`;
+const canonicalUrl = `${domain}${pathname}`;
+
+type Props = {
+  title?: string;
+  description?: string;
+};
+
+const { title = t("meta.title"), description = t("meta.description") }: Props =
+  Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={locale}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -21,16 +36,22 @@ const description =
     <meta name="description" content={description} />
     <meta name="author" content="Arthur Sallé" />
 
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="alternate" hreflang="en" href={`${domain}${enPath}`} />
+    <link rel="alternate" hreflang="fr" href={`${domain}${frPath}`} />
+    <link rel="alternate" hreflang="x-default" href={`${domain}${enPath}`} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={domain} />
+    <meta property="og:url" content={canonicalUrl} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={`${domain}/c-og-img.webp`} />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={domain} />
+    <meta property="twitter:url" content={canonicalUrl} />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={`${domain}/c-og-img.webp`} />

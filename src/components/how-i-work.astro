@@ -1,0 +1,31 @@
+---
+import { howIWorkIntro, howIWorkSteps } from "@/data/how-i-work";
+import { getLocale, useTranslations } from "@/i18n/ui";
+
+const locale = getLocale(Astro.currentLocale);
+const t = useTranslations(locale);
+---
+
+<div class="flex w-full max-w-xl flex-col gap-4">
+  <h2 class="font-manrope text-lg font-semibold text-zinc-100">
+    {t("how.title")}
+  </h2>
+
+  <p>{howIWorkIntro[locale]}</p>
+
+  <ol class="flex flex-col gap-2">
+    {
+      howIWorkSteps.map((step, i) => (
+        <li class="flex gap-4 rounded-xl border border-zinc-800 p-4">
+          <span class="font-mono text-sm text-zinc-600">0{i + 1}</span>
+          <div class="flex flex-col gap-1">
+            <span class="font-manrope font-medium text-zinc-100">
+              {step.title[locale]}
+            </span>
+            <p class="text-sm text-zinc-400">{step.description[locale]}</p>
+          </div>
+        </li>
+      ))
+    }
+  </ol>
+</div>

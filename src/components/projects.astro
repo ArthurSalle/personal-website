@@ -1,51 +1,32 @@
 ---
-import DropshotPreview from "@/assets/c-dropshot.png";
-import P2Preview from "@/assets/c-p2p.webp";
-import TeamzPreview from "@/assets/c-teamz.webp";
-import VoilaPreview from "@/assets/c-voila.webp";
+import { caseStudies } from "@/data/projects";
+import { getLocale, useTranslations } from "@/i18n/ui";
 import ProjectCard from "./ui/project-card.astro";
 
-const projects = [
-	{
-		title: "Dropshot Coaching",
-		description:
-			"A video coaching platform for athletes with AI-powered analysis, built as a cross-platform app with a web backoffice and a mobile experience for players.",
-		imageUrl: DropshotPreview.src,
-		url: "https://dropshot-coaching.com/",
-		bgClass: "bg-zinc-900",
-		imgClass: "h-20",
-	},
-	{
-		title: "Peer2Park",
-		description:
-			"A peer-to-peer marketplace connecting parking space owners and renters in Dubai, with payments, multilingual support, and location-based search.",
-		imageUrl: P2Preview.src,
-		url: "https://peer2parkdubai.com/",
-		bgClass: "bg-[#cfd9fc]",
-	},
-	{
-		title: "voilà eSIM",
-		description:
-			"A dashboard for travelers to buy, manage, and activate eSIM plans worldwide, with usage tracking and simple account management.",
-		imageUrl: VoilaPreview.src,
-		url: "https://voilacreators.com/",
-		bgClass: "bg-[#fc3838]",
-	},
-	{
-		title: "Teamz Tennis",
-		description:
-			"A platform for tennis clubs and players to organize team competitions, from match scheduling to results and rankings.",
-		imageUrl: TeamzPreview.src,
-		url: "https://www.teamz-tennis.com/",
-		bgClass: "bg-[#FE5000]",
-	},
-];
+const locale = getLocale(Astro.currentLocale);
+const t = useTranslations(locale);
+const basePath = locale === "fr" ? "/fr/projects" : "/projects";
 ---
 
 <div class="flex w-full max-w-xl flex-col gap-4">
-  <h2 class="font-manrope text-lg font-semibold text-zinc-100">Projects</h2>
+  <h2 class="font-manrope text-lg font-semibold text-zinc-100">
+    {t("projects.title")}
+  </h2>
 
   <div class="grid grid-cols-1 gap-8 sm:grid-cols-2">
-    {projects.map((project) => <ProjectCard project={project} />)}
+    {
+      caseStudies.map((project) => (
+        <ProjectCard
+          project={{
+            title: project.title,
+            description: project.tagline[locale],
+            image: project.image,
+            url: `${basePath}/${project.slug}/`,
+            accent: project.accent,
+          }}
+          linkLabel={t("projects.caseStudy")}
+        />
+      ))
+    }
   </div>
 </div>

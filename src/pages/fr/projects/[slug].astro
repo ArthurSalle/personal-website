@@ -1,0 +1,27 @@
+---
+import CaseStudy from "@/components/case-study.astro";
+import Footer from "@/components/footer.astro";
+import { caseStudies } from "@/data/projects";
+import Layout from "@/layouts/layout.astro";
+
+export function getStaticPaths() {
+  return caseStudies.map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+---
+
+<Layout
+  title={`${project.title} | Arthur Sallé`}
+  description={project.tagline.fr}
+>
+  <main
+    class="mx-auto flex flex-col items-center gap-16 px-4 pt-12 pb-4 md:pt-20"
+  >
+    <CaseStudy project={project} />
+    <Footer />
+  </main>
+</Layout>

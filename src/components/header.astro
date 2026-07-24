@@ -1,36 +1,66 @@
 ---
+import { Image } from "astro:assets";
+
 import profilePic from "@/assets/c-arthur.webp";
+import { getLocale, useTranslations } from "@/i18n/ui";
 import LinkButton from "./ui/link-button.astro";
+
+const locale = getLocale(Astro.currentLocale);
+const t = useTranslations(locale);
 ---
 
 <header class="flex w-full max-w-xl flex-col gap-12">
-  <div class="flex items-center gap-4">
-    <img
-      src={profilePic.src}
-      alt="Arthur Sallé"
-      height={96}
-      width={96}
-      class="aspect-square size-16 rounded-full border-2 object-cover shadow-xs shadow-zinc-500 select-none md:size-20"
-    />
-    <div class="font-manrope">
-      <h1 class="text-2xl font-medium text-zinc-100 md:text-3xl">
-        Arthur Sallé
-      </h1>
-      <h2 class="text-zinc-500 md:text-lg">Fullstack Product Developer</h2>
+  <div class="flex items-start justify-between gap-4">
+    <div class="flex items-center gap-4">
+      <Image
+        src={profilePic}
+        alt="Arthur Sallé"
+        width={160}
+        format="webp"
+        class="aspect-square size-16 rounded-full border-2 object-cover shadow-xs shadow-zinc-500 select-none md:size-20"
+      />
+      <div class="font-manrope">
+        <h1 class="text-2xl font-medium text-zinc-100 md:text-3xl">
+          Arthur Sallé
+        </h1>
+        <h2 class="text-zinc-500 md:text-lg">{t("header.role")}</h2>
+        <span
+          class="mt-1.5 flex w-fit items-center gap-1.5 rounded-full border border-emerald-400/30 bg-emerald-400/10 px-2.5 py-0.5 text-xs font-medium text-emerald-400"
+        >
+          <span class="relative flex size-2">
+            <span
+              class="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"
+            ></span>
+            <span
+              class="relative inline-flex size-2 rounded-full bg-emerald-400"
+            ></span>
+          </span>
+          {t("header.available")}
+        </span>
+      </div>
     </div>
+
+    <nav class="flex items-center gap-1 text-sm text-zinc-500">
+      <a
+        href="/"
+        class={`rounded px-1.5 py-0.5 transition-colors duration-200 hover:text-zinc-100 ${locale === "en" ? "text-zinc-100" : ""}`}
+        >EN</a
+      >
+      <span class="text-zinc-700">/</span>
+      <a
+        href="/fr/"
+        class={`rounded px-1.5 py-0.5 transition-colors duration-200 hover:text-zinc-100 ${locale === "fr" ? "text-zinc-100" : ""}`}
+        >FR</a
+      >
+    </nav>
   </div>
 
   <div class="flex flex-col gap-6">
     <div class="flex flex-col gap-4">
+      <p>{t("header.bio1")}</p>
       <p>
-        I architect and build digital products end-to-end, from early-stage
-        workshops to production-ready apps. Based in Angers, France, I work
-        across web and mobile, from frontend to backend and infrastructure.
-      </p>
-      <p>
-        Part of <a href="https://undefinedhq.com/" target="_blank" class="text-zinc-300 underline underline-offset-2 transition-colors duration-200 hover:text-white">UndefinedHQ</a>,
-        a small collective where I collaborate with a designer and another
-        developer to ship products that are both well-crafted and business-driven.
+        {t("header.bio2")}
+        <span class="text-zinc-300">UndefinedHQ</span>, {t("header.bio2b")}
       </p>
     </div>
 
@@ -39,7 +69,6 @@ import LinkButton from "./ui/link-button.astro";
       <LinkButton href="https://www.linkedin.com/in/arthur-sall%C3%A9/"
         >LinkedIn</LinkButton
       >
-      <LinkButton href="https://x.com/arthrsll">Twitter</LinkButton>
     </div>
   </div>
 </header>
