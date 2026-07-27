@@ -31,8 +31,9 @@ export const ui = {
     "case.back": "Back",
     "case.visit": "Visit the project",
     "contact.title": "Get in touch",
-    "contact.text": "Have a project in mind?",
-    "contact.cta": "Let's talk",
+    "contact.text":
+      "Have a project in mind? Book a slot, or drop me an email at",
+    "contact.book": "Book a call",
   },
   fr: {
     "meta.title": "Arthur Sallé | Product Engineer · Fullstack TypeScript",
@@ -59,8 +60,9 @@ export const ui = {
     "case.back": "Retour",
     "case.visit": "Voir le projet",
     "contact.title": "Contact",
-    "contact.text": "Un projet en tête ?",
-    "contact.cta": "Parlons-en",
+    "contact.text":
+      "Un projet en tête ? Réservez un créneau, ou écrivez-moi à",
+    "contact.book": "Réserver un créneau",
   },
 } as const;
 

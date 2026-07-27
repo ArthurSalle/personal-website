@@ -1,8 +1,12 @@
 ---
 import { getLocale, useTranslations } from "@/i18n/ui";
+import LinkButton from "./ui/link-button.astro";
 
 const locale = getLocale(Astro.currentLocale);
 const t = useTranslations(locale);
+
+const email = "arthur.salle95@gmail.com";
+const bookingUrl = "https://cal.eu/arthursalle/project";
 ---
 
 <div class="flex w-full max-w-xl flex-col gap-4">
@@ -10,14 +14,14 @@ const t = useTranslations(locale);
     {t("contact.title")}
   </h2>
 
-  <span
-    >{t("contact.text")}
-    {" "}
-    <a href="mailto:arthur.salle95@gmail.com">
-      <span
-        class="text-zinc-300 underline underline-offset-2 transition-colors duration-200 hover:text-white"
-        >{t("contact.cta")}</span
-      >
-    </a>.
-  </span>
+  <p>
+    {t("contact.text")}
+    <a
+      href={`mailto:${email}`}
+      class="text-zinc-300 underline underline-offset-2 transition-colors duration-200 hover:text-white"
+      >{email}</a
+    >.
+  </p>
+
+  <LinkButton href={bookingUrl}>{t("contact.book")}</LinkButton>
 </div>
