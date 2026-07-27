@@ -11,8 +11,8 @@ const t = useTranslations(locale);
 
 const rawPathname = Astro.url.pathname;
 const pathname = rawPathname.endsWith("/") ? rawPathname : `${rawPathname}/`;
-const enPath = pathname.startsWith("/fr/") ? pathname.slice(3) : pathname;
-const frPath = pathname.startsWith("/fr/") ? pathname : `/fr${pathname}`;
+const frPath = pathname.startsWith("/en/") ? pathname.slice(3) : pathname;
+const enPath = pathname.startsWith("/en/") ? pathname : `/en${pathname}`;
 const canonicalUrl = `${domain}${pathname}`;
 
 type Props = {
@@ -39,7 +39,7 @@ const { title = t("meta.title"), description = t("meta.description") }: Props =
     <link rel="canonical" href={canonicalUrl} />
     <link rel="alternate" hreflang="en" href={`${domain}${enPath}`} />
     <link rel="alternate" hreflang="fr" href={`${domain}${frPath}`} />
-    <link rel="alternate" hreflang="x-default" href={`${domain}${enPath}`} />
+    <link rel="alternate" hreflang="x-default" href={`${domain}${frPath}`} />
     <link rel="sitemap" href="/sitemap-index.xml" />
 
     <!-- Open Graph / Facebook -->

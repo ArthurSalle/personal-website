@@ -13,9 +13,9 @@ type Props = {
 const { project }: Props = Astro.props;
 const locale = getLocale(Astro.currentLocale);
 const t = useTranslations(locale);
-const homeUrl = locale === "fr" ? "/fr/" : "/";
-const enUrl = `/projects/${project.slug}/`;
-const frUrl = `/fr/projects/${project.slug}/`;
+const homeUrl = locale === "en" ? "/en/" : "/";
+const frUrl = `/projects/${project.slug}/`;
+const enUrl = `/en/projects/${project.slug}/`;
 
 // Rend les liens markdown [label](url) présents dans les textes des études de cas
 function renderLinks(text: string): string {
@@ -37,15 +37,15 @@ function renderLinks(text: string): string {
 
       <nav class="flex items-center gap-1 text-sm text-zinc-500">
         <a
-          href={enUrl}
-          class={`rounded px-1.5 py-0.5 transition-colors duration-200 hover:text-zinc-100 ${locale === "en" ? "text-zinc-100" : ""}`}
-          >EN</a
-        >
-        <span class="text-zinc-700">/</span>
-        <a
           href={frUrl}
           class={`rounded px-1.5 py-0.5 transition-colors duration-200 hover:text-zinc-100 ${locale === "fr" ? "text-zinc-100" : ""}`}
           >FR</a
+        >
+        <span class="text-zinc-700">/</span>
+        <a
+          href={enUrl}
+          class={`rounded px-1.5 py-0.5 transition-colors duration-200 hover:text-zinc-100 ${locale === "en" ? "text-zinc-100" : ""}`}
+          >EN</a
         >
       </nav>
     </div>

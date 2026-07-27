@@ -304,8 +304,8 @@ export const caseStudies: CaseStudy[] = [
       fr: "Une app macOS native (barre de menus) qui surveille les ports TCP en écoute et rappelle de tuer les serveurs de dev oubliés. Pensée pour l'ère du code assisté par IA, où les agents lancent des serveurs que personne n'arrête.",
     },
     role: {
-      en: "A small personal project whose Swift code is entirely AI-generated, driven by specs and iterations rather than written by hand. Born out of a real annoyance, a few forgotten dev servers running in the background, and turned into a demonstration of what can be shipped by driving AI agents outside one's own stack. A tool for the AI-coding era, itself coded by AI.",
-      fr: "Petit projet perso dont le code Swift est entièrement généré par IA, guidé par des specs et des itérations plutôt qu'écrit à la main. Né d'un agacement concret, quelques serveurs de dev oubliés en fond, et devenu une démonstration de ce qu'on peut livrer en pilotant des agents IA hors de sa propre stack. Un outil pour l'ère du code assisté par IA, lui-même codé par IA.",
+      en: "A native macOS app, open source, taken end-to-end in a language outside my stack, through AI-driven development. I wrote the specs, made the architecture calls and reviewed every iteration, the agents wrote the Swift code.",
+      fr: "Une app macOS native, en open source, menée de bout en bout dans un langage hors de ma stack, en développement piloté par IA. J'ai écrit les specs, choisi l'architecture et validé chaque itération, les agents ont écrit le code Swift.",
     },
     decisions: {
       en: [

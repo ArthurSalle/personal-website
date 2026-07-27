@@ -1,6 +1,6 @@
-export const locales = ["en", "fr"] as const;
+export const locales = ["fr", "en"] as const;
 export type Locale = (typeof locales)[number];
-export const defaultLocale: Locale = "en";
+export const defaultLocale: Locale = "fr";
 
 export type LocalizedText = Record<Locale, string>;
 export type LocalizedList = Record<Locale, string[]>;
@@ -67,7 +67,7 @@ export const ui = {
 export type UIKey = keyof (typeof ui)["en"];
 
 export function getLocale(currentLocale: string | undefined): Locale {
-  return currentLocale === "fr" ? "fr" : "en";
+  return currentLocale === "en" ? "en" : "fr";
 }
 
 export function useTranslations(locale: Locale) {

@@ -8,8 +8,8 @@ export default defineConfig({
   site: "https://arthur-salle.fr",
   integrations: [sitemap()],
   i18n: {
-    defaultLocale: "en",
-    locales: ["en", "fr"],
+    defaultLocale: "fr",
+    locales: ["fr", "en"],
     routing: {
       prefixDefaultLocale: false,
     },
