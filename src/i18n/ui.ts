@@ -32,7 +32,8 @@ export const ui = {
     "case.visit": "Visit the project",
     "contact.title": "Get in touch",
     "contact.text":
-      "A project, an opportunity, or just want to talk? Book a slot, or drop me an email at",
+      "A project, an opportunity, or just want to talk? Book a slot, or",
+    "contact.email": "send me an email",
     "contact.book": "Book a call",
   },
   fr: {
@@ -61,7 +62,8 @@ export const ui = {
     "case.visit": "Voir le projet",
     "contact.title": "Contact",
     "contact.text":
-      "Un projet, une opportunité, ou juste envie d'échanger ? Réservez un créneau, ou écrivez-moi à",
+      "Un projet, une opportunité, ou juste envie d'échanger ? Réservez un créneau, ou",
+    "contact.email": "écrivez-moi",
     "contact.book": "Réserver un créneau",
   },
 } as const;
