@@ -7,6 +7,7 @@ type Project = {
   title: string;
   description: string;
   image?: ImageMetadata;
+  preview?: "screenshot" | "art";
   url?: string;
   accent: string;
   label?: string;
@@ -20,6 +21,12 @@ type Props = {
 const { project, linkLabel }: Props = Astro.props;
 const isExternal = project.url?.startsWith("http");
 const glowStyle = `background: radial-gradient(120% 90% at 50% 0%, ${project.accent}2e, transparent 65%);`;
+
+// Les captures sont cadrées comme un écran, les visuels carrés posés en tuile centrée
+const imageClass =
+  project.preview === "art"
+    ? "absolute top-1/2 left-1/2 h-[78%] w-auto -translate-x-1/2 -translate-y-1/2 rounded-2xl object-contain shadow-2xl shadow-black/50 transition-transform duration-300 group-hover:scale-105"
+    : "absolute inset-x-5 top-5 h-[calc(100%-1.25rem)] w-[calc(100%-2.5rem)] rounded-t-sm border border-zinc-700/60 object-cover object-top shadow-2xl shadow-black/50 transition-transform duration-300 group-hover:-translate-y-1";
 ---
 
 <a
@@ -40,7 +47,7 @@ const glowStyle = `background: radial-gradient(120% 90% at 50% 0%, ${project.acc
           alt={project.title}
           width={720}
           format="webp"
-          class="absolute inset-x-5 top-5 h-[calc(100%-1.25rem)] w-[calc(100%-2.5rem)] rounded-t-sm border border-zinc-700/60 object-cover object-top shadow-2xl shadow-black/50 transition-transform duration-300 group-hover:-translate-y-1"
+          class={imageClass}
           loading="lazy"
         />
       ) : (

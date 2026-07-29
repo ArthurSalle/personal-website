@@ -20,7 +20,8 @@ const basePath = locale === "en" ? "/en/projects" : "/projects";
           project={{
             title: project.title,
             description: project.tagline[locale],
-            image: project.image,
+            image: project.cardImage ?? project.image,
+            preview: project.cardPreview ?? project.preview,
             url: `${basePath}/${project.slug}/`,
             accent: project.accent,
             label: project.label?.[locale],

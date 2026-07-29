@@ -1,6 +1,8 @@
 import DropshotPreview from "@/assets/c-dropshot-prev.webp";
 import P2Preview from "@/assets/c-p2p.webp";
+import PepperPreview from "@/assets/c-pepper.png";
 import TeamzPreview from "@/assets/c-teamz.webp";
+import VigieIcon from "@/assets/c-vigie-icon.png";
 import VigiePreview from "@/assets/c-vigie.png";
 import WetennixPreview from "@/assets/c-wetennix.webp";
 import VoilaPreview from "@/assets/c-voila.webp";
@@ -13,6 +15,11 @@ export type CaseStudy = {
   title: string;
   url?: string;
   image?: ImageMetadata;
+  /** Rendu de l'image : capture encadrée (défaut) ou visuel posé en tuile */
+  preview?: "screenshot" | "art";
+  /** Image de la carte, si elle diffère de celle de l'étude de cas */
+  cardImage?: ImageMetadata;
+  cardPreview?: "screenshot" | "art";
   accent: string;
   /** Pastille affichée sur la carte et l'étude de cas (ex. « Projet perso ») */
   label?: LocalizedText;
@@ -296,6 +303,8 @@ export const caseStudies: CaseStudy[] = [
     title: "Vigie",
     url: "https://github.com/ArthurSalle/vigie",
     image: VigiePreview,
+    cardImage: VigieIcon,
+    cardPreview: "art",
     accent: "#a78bfa",
     label: {
       en: "Side project",
@@ -344,6 +353,8 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "pepper",
     title: "Pepper",
+    image: PepperPreview,
+    preview: "art",
     accent: "#34d399",
     label: {
       en: "Side project",

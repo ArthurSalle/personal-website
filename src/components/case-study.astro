@@ -72,7 +72,11 @@ function renderLinks(text: string): string {
             alt={project.title}
             width={1100}
             format="webp"
-            class="absolute inset-x-8 top-8 h-[calc(100%-2rem)] w-[calc(100%-4rem)] rounded-t-sm border border-zinc-700/60 object-cover object-top shadow-2xl shadow-black/50"
+            class={
+              project.preview === "art"
+                ? "absolute top-1/2 left-1/2 h-[78%] w-auto -translate-x-1/2 -translate-y-1/2 rounded-2xl object-contain shadow-2xl shadow-black/50"
+                : "absolute inset-x-8 top-8 h-[calc(100%-2rem)] w-[calc(100%-4rem)] rounded-t-sm border border-zinc-700/60 object-cover object-top shadow-2xl shadow-black/50"
+            }
           />
         </div>
       )
