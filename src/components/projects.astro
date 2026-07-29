@@ -23,6 +23,7 @@ const basePath = locale === "en" ? "/en/projects" : "/projects";
             image: project.image,
             url: `${basePath}/${project.slug}/`,
             accent: project.accent,
+            label: project.label?.[locale],
           }}
           linkLabel={t("projects.caseStudy")}
         />

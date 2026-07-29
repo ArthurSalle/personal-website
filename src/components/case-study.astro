@@ -51,9 +51,12 @@ function renderLinks(text: string): string {
     </div>
 
     <div class="flex flex-col gap-1">
-      <h1 class="font-manrope text-2xl font-medium text-zinc-100 md:text-3xl">
-        {project.title}
-      </h1>
+      <div class="flex flex-wrap items-center gap-3">
+        <h1 class="font-manrope text-2xl font-medium text-zinc-100 md:text-3xl">
+          {project.title}
+        </h1>
+        {project.label && <Badge tone="neutral">{project.label[locale]}</Badge>}
+      </div>
       <p class="text-zinc-500 md:text-lg">{project.tagline[locale]}</p>
     </div>
 

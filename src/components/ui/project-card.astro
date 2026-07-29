@@ -1,12 +1,15 @@
 ---
 import { Image } from "astro:assets";
 
+import Badge from "./badge.astro";
+
 type Project = {
   title: string;
   description: string;
   image?: ImageMetadata;
   url?: string;
   accent: string;
+  label?: string;
 };
 
 type Props = {
@@ -52,7 +55,16 @@ const glowStyle = `background: radial-gradient(120% 90% at 50% 0%, ${project.acc
 
   <div>
     <div class="flex items-baseline justify-between gap-2">
-      <h3 class="font-manrope font-medium text-zinc-100">{project.title}</h3>
+      <div class="flex items-baseline gap-2">
+        <h3 class="font-manrope font-medium text-zinc-100">{project.title}</h3>
+        {
+          project.label && (
+            <Badge tone="neutral">
+              <span class="text-xs">{project.label}</span>
+            </Badge>
+          )
+        }
+      </div>
       {
         linkLabel && (
           <span class="text-xs text-zinc-500 transition-colors duration-200 group-hover:text-zinc-300">

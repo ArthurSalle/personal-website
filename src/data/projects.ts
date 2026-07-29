@@ -14,6 +14,8 @@ export type CaseStudy = {
   url?: string;
   image?: ImageMetadata;
   accent: string;
+  /** Pastille affichée sur la carte et l'étude de cas (ex. « Projet perso ») */
+  label?: LocalizedText;
   tagline: LocalizedText;
   context: LocalizedText;
   role: LocalizedText;
@@ -295,6 +297,10 @@ export const caseStudies: CaseStudy[] = [
     url: "https://github.com/ArthurSalle/vigie",
     image: VigiePreview,
     accent: "#a78bfa",
+    label: {
+      en: "Side project",
+      fr: "Projet perso",
+    },
     tagline: {
       en: "Native macOS menu-bar app for dev ports",
       fr: "App macOS native de surveillance des ports",
@@ -334,5 +340,70 @@ export const caseStudies: CaseStudy[] = [
       ],
     },
     stack: ["Swift 6", "SwiftUI", "SwiftPM", "macOS"],
+  },
+  {
+    slug: "pepper",
+    title: "Pepper",
+    accent: "#34d399",
+    label: {
+      en: "Side project",
+      fr: "Projet perso",
+    },
+    tagline: {
+      en: "Telegram assistant for a shared Obsidian vault",
+      fr: "Assistant Telegram pour un vault Obsidian partagé",
+    },
+    context: {
+      en: "A side project on unfamiliar ground: running a VPS, writing an agent harness by hand, plugging a model in through OpenRouter. The use case: an Obsidian vault shared with someone else, reachable anywhere, with no sync subscription. A single copy of the vault on the VPS, Telegram as the interface. Pepper reads and writes the Markdown notes, creates todos, assigns them and notifies the person concerned.",
+      fr: "Un side project sur un terrain que je ne connaissais pas : administrer un VPS, écrire un harness d'agent à la main, brancher un modèle via OpenRouter. Le cas d'usage : un vault Obsidian partagé avec un tiers, accessible de partout, sans abonnement de synchronisation. Une seule copie du vault sur le VPS, Telegram en interface. Pepper lit et écrit les notes Markdown, crée des todos, les assigne et notifie la personne concernée.",
+    },
+    role: {
+      en: "Handled alone, end-to-end: spec and technical plan written before any code, then development, tests and the move to production on the VPS. The harness is written by hand rather than taken from a framework, which keeps control over what the model is allowed to do.",
+      fr: "Mené seul, de bout en bout : specs et plan technique écrits avant de coder, puis développement, tests et mise en production sur le VPS. Le harness est écrit à la main plutôt que repris d'un framework, ce qui garde le contrôle sur ce que le modèle peut faire.",
+    },
+    decisions: {
+      en: [
+        "Tool surface kept to five tools (read, write, list notes, list assets, generate an image): no shell, no web access, no deletion",
+        "Zone partitioning enforced in the harness, paths validated: the model never reaches the other user's zone",
+        "No database: the Markdown files are the source of truth, written to Obsidian conventions (wikilinks, tags, frontmatter), so Obsidian Sync stays an option later",
+        "LLM behind a one-method interface: OpenRouter in production, a pre-recorded client in tests, model picked through an environment variable",
+        "The /status, /notes and /help commands answered without calling the model: immediate, no cost",
+      ],
+      fr: [
+        "Surface d'outils limitée à cinq tools (lire, écrire, lister les notes, lister les assets, générer une image) : pas de shell, pas d'accès web, pas de suppression",
+        "Cloisonnement des zones appliqué dans le harness, chemins validés : le modèle n'atteint jamais la zone de l'autre utilisateur",
+        "Pas de base de données : les fichiers Markdown font la source de vérité, aux conventions Obsidian (wikilinks, tags, frontmatter), donc Obsidian Sync reste une option plus tard",
+        "LLM derrière une interface à une seule méthode : OpenRouter en production, client pré-enregistré en test, modèle choisi par variable d'environnement",
+        "Commandes /status, /notes et /help traitées sans appel au modèle : immédiat et sans coût",
+      ],
+    },
+    highlights: {
+      en: [
+        "Tool-calling loop with conversation memory, running on Gemini Flash via OpenRouter",
+        "Assignment: the todo goes into the shared zone and the other user gets a direct message",
+        "Image generation, returned on Telegram and archived in the vault",
+        "Tests colocated per module (Vitest), CI on lint, typecheck, tests and build at every push",
+        "Continuous execution on a VPS under pm2, automatic restart, hardened SSH (keys, UFW, fail2ban)",
+        "Running costs of 5 to 8 € a month, spend cap set on the API from day one",
+      ],
+      fr: [
+        "Boucle de tool-calling avec mémoire de conversation, sur Gemini Flash via OpenRouter",
+        "Assignation : la todo part dans la zone partagée et l'autre utilisateur reçoit un message direct",
+        "Génération d'images, renvoyées sur Telegram et archivées dans le vault",
+        "Tests colocalisés par module (Vitest), CI sur lint, typecheck, tests et build à chaque push",
+        "Exécution continue sur VPS sous pm2, redémarrage automatique, SSH durci (clés, UFW, fail2ban)",
+        "Coût d'exploitation de 5 à 8 € par mois, plafond de dépense posé sur l'API dès la mise en service",
+      ],
+    },
+    stack: [
+      "TypeScript",
+      "Node.js 24",
+      "grammY",
+      "OpenRouter",
+      "Vitest",
+      "Biome",
+      "pm2",
+      "Scaleway",
+    ],
   },
 ];
