@@ -13,7 +13,7 @@ export const ui = {
     "header.role": "Product Engineer · Fullstack TypeScript",
     "header.available": "Available",
     "header.bio1":
-      "I design and ship products end-to-end, from the first workshop to production. I spend most of my time in fullstack TypeScript (React, tRPC, Expo), building marketplaces, payment flows and AI features that real users rely on. Based in Angers, France, I work on-site in Angers, Nantes or Paris, or fully remote.",
+      "I design and ship products end-to-end, from the first workshop to production. I spend most of my time in fullstack TypeScript (React, tRPC, Expo), building marketplaces, payment flows and AI features that run in production. Based in Angers, France, I work on-site there, in Nantes or Paris, or fully remote.",
     "header.bio2":
       "I work solo or in a team, and I care as much about the product as the code. I'm also part of the collective",
     "header.bio2b":
@@ -43,7 +43,7 @@ export const ui = {
     "header.role": "Product Engineer · Fullstack TypeScript",
     "header.available": "Disponible",
     "header.bio1":
-      "Je conçois et livre des produits de bout en bout, du premier workshop jusqu'à la mise en production. Je passe l'essentiel de mon temps en fullstack TypeScript (React, tRPC, Expo), à construire des marketplaces, des parcours de paiement et des features IA utilisées par de vrais utilisateurs. Basé à Angers, j'interviens sur Angers, Nantes, Paris ou en full remote.",
+      "Je conçois et livre des produits de bout en bout, du premier workshop jusqu'à la mise en production. Je passe l'essentiel de mon temps en fullstack TypeScript (React, tRPC, Expo), à construire des marketplaces, des parcours de paiement et des features IA qui tournent en production. Basé à Angers, j'interviens à Angers, Nantes, Paris ou en full remote.",
     "header.bio2":
       "Je travaille en solo ou en équipe, et le produit compte autant pour moi que le code. Je fais aussi partie du collectif",
     "header.bio2b":

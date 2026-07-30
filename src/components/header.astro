@@ -10,20 +10,24 @@ const t = useTranslations(locale);
 ---
 
 <header class="flex w-full max-w-xl flex-col gap-12">
-  <div class="flex items-start justify-between gap-4">
+  <div
+    class="flex flex-col-reverse items-stretch gap-3 sm:flex-row sm:items-start sm:justify-between sm:gap-4"
+  >
     <div class="flex items-center gap-4">
       <Image
         src={profilePic}
         alt="Arthur Sallé"
         width={160}
         format="webp"
+        loading="eager"
+        fetchpriority="high"
         class="aspect-square size-16 rounded-full border-2 object-cover shadow-xs shadow-zinc-500 select-none md:size-20"
       />
       <div class="font-manrope">
         <h1 class="text-2xl font-medium text-zinc-100 md:text-3xl">
           Arthur Sallé
         </h1>
-        <h2 class="text-zinc-500 md:text-lg">{t("header.role")}</h2>
+        <h2 class="text-muted md:text-lg">{t("header.role")}</h2>
         <span
           class="mt-1.5 flex w-fit items-center gap-1.5 rounded-full border border-emerald-400/30 bg-emerald-400/10 px-2.5 py-0.5 text-xs font-medium text-emerald-400"
         >
@@ -40,13 +44,13 @@ const t = useTranslations(locale);
       </div>
     </div>
 
-    <nav class="flex items-center gap-1 text-sm text-zinc-500">
+    <nav class="text-muted flex items-center justify-end gap-1 text-sm">
       <a
         href="/"
         class={`rounded px-1.5 py-0.5 transition-colors duration-200 hover:text-zinc-100 ${locale === "fr" ? "text-zinc-100" : ""}`}
         >FR</a
       >
-      <span class="text-zinc-700">/</span>
+      <span aria-hidden="true" class="text-muted">/</span>
       <a
         href="/en/"
         class={`rounded px-1.5 py-0.5 transition-colors duration-200 hover:text-zinc-100 ${locale === "en" ? "text-zinc-100" : ""}`}
@@ -65,7 +69,7 @@ const t = useTranslations(locale);
     </div>
 
     <div class="flex flex-wrap items-center gap-3">
-      <LinkButton href="https://github.com/ArthurSalle">Github</LinkButton>
+      <LinkButton href="https://github.com/ArthurSalle">GitHub</LinkButton>
       <LinkButton href="https://www.linkedin.com/in/arthur-sall%C3%A9/"
         >LinkedIn</LinkButton
       >

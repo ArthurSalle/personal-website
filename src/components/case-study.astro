@@ -31,17 +31,17 @@ function renderLinks(text: string): string {
     <div class="flex items-center justify-between gap-4">
       <a
         href={homeUrl}
-        class="w-fit text-sm text-zinc-500 transition-colors duration-200 hover:text-zinc-100"
+        class="text-muted w-fit text-sm transition-colors duration-200 hover:text-zinc-100"
         >← {t("case.back")}</a
       >
 
-      <nav class="flex items-center gap-1 text-sm text-zinc-500">
+      <nav class="text-muted flex items-center gap-1 text-sm">
         <a
           href={frUrl}
           class={`rounded px-1.5 py-0.5 transition-colors duration-200 hover:text-zinc-100 ${locale === "fr" ? "text-zinc-100" : ""}`}
           >FR</a
         >
-        <span class="text-zinc-700">/</span>
+        <span aria-hidden="true" class="text-muted">/</span>
         <a
           href={enUrl}
           class={`rounded px-1.5 py-0.5 transition-colors duration-200 hover:text-zinc-100 ${locale === "en" ? "text-zinc-100" : ""}`}
@@ -57,7 +57,7 @@ function renderLinks(text: string): string {
         </h1>
         {project.label && <Badge tone="neutral">{project.label[locale]}</Badge>}
       </div>
-      <p class="text-zinc-500 md:text-lg">{project.tagline[locale]}</p>
+      <p class="text-muted md:text-lg">{project.tagline[locale]}</p>
     </div>
 
     {
@@ -72,6 +72,8 @@ function renderLinks(text: string): string {
             alt={project.title}
             width={1100}
             format="webp"
+            loading="eager"
+            fetchpriority="high"
             class={
               project.preview === "art"
                 ? "absolute top-1/2 left-1/2 h-[78%] w-auto -translate-x-1/2 -translate-y-1/2 rounded-2xl object-contain shadow-2xl shadow-black/50"
@@ -103,7 +105,7 @@ function renderLinks(text: string): string {
         <h2 class="font-manrope text-lg font-semibold text-zinc-100">
           {t("case.decisions")}
         </h2>
-        <ul class="flex list-disc flex-col gap-2 pl-5 marker:text-zinc-600">
+        <ul class="marker:text-muted flex list-disc flex-col gap-2 pl-5">
           {project.decisions[locale].map((item) => (
             <li set:html={renderLinks(item)} />
           ))}
@@ -116,7 +118,7 @@ function renderLinks(text: string): string {
     <h2 class="font-manrope text-lg font-semibold text-zinc-100">
       {t("case.highlights")}
     </h2>
-    <ul class="flex list-disc flex-col gap-2 pl-5 marker:text-zinc-600">
+    <ul class="marker:text-muted flex list-disc flex-col gap-2 pl-5">
       {
         project.highlights[locale].map((item) => (
           <li set:html={renderLinks(item)} />

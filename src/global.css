@@ -18,4 +18,9 @@
 @theme {
   --font-manrope: "Manrope", sans-serif;
   --font-anton: "Anton", sans-serif;
+
+  /* Texte secondaire : 4.88:1 sur zinc-950, plus sombre que le corps de texte
+     (zinc-400) tout en passant le minimum WCAG AA. Remplace text-zinc-500,
+     qui plafonnait à 4.11:1. */
+  --color-muted: #7d7d87;
 }

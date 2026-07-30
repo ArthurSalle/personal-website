@@ -160,12 +160,12 @@ export const caseStudies: CaseStudy[] = [
       fr: "La marketplace qui connecte le monde du tennis",
     },
     context: {
-      en: "Teamz connects tennis organizations with players and coaches: recruitment listings, applications, messaging, tournaments. The first version, launched two years ago, matched clubs and players. The V2 currently in development opens the platform to padel, coach profiles and new kinds of organizations: hotels, resorts, federations.",
-      fr: "Teamz met en relation les structures du tennis avec les joueurs et les coachs : annonces de recrutement, candidatures, messagerie, tournois. La première version, lancée il y a deux ans, connectait clubs et joueurs. La V2 en cours de développement ouvre la plateforme au padel, aux profils coach et à de nouveaux types de structures : hôtels, resorts, fédérations.",
+      en: "Teamz connects tennis organizations with players and coaches: recruitment listings, applications, messaging, tournaments. The first version matched clubs and players. The V2 currently in development opens the platform to padel, coach profiles and new kinds of organizations: hotels, resorts, federations.",
+      fr: "Teamz met en relation les structures du tennis avec les joueurs et les coachs : annonces de recrutement, candidatures, messagerie, tournois. La première version connectait clubs et joueurs. La V2 en cours de développement ouvre la plateforme au padel, aux profils coach et à de nouveaux types de structures : hôtels, resorts, fédérations.",
     },
     role: {
-      en: "Fullstack development over the long run: the V1 two years ago, now the V2 with the API migration from Hono RPC to tRPC, coach profiles, padel and the freemium plans. Plus Stripe payments and a security audit along the way.",
-      fr: "Développement fullstack sur la durée : la V1 il y a deux ans, aujourd'hui la V2 avec la migration de l'API de Hono RPC vers tRPC, les profils coach, le padel et le freemium. S'y ajoutent les paiements Stripe et un audit de sécurité au passage.",
+      en: "Fullstack development over the long run: from the V1 to the V2, with the API migration from Hono RPC to tRPC, coach profiles, padel and the freemium plans. Plus Stripe payments and a security audit along the way.",
+      fr: "Développement fullstack sur la durée : de la V1 à la V2, avec la migration de l'API de Hono RPC vers tRPC, les profils coach, le padel et le freemium. S'y ajoutent les paiements Stripe et un audit de sécurité au passage.",
     },
     decisions: {
       en: [
@@ -244,7 +244,6 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "peer2park",
     title: "Peer2Park",
-    url: "https://peer2parkdubai.com/",
     image: P2Preview,
     accent: "#8aa5f6",
     tagline: {

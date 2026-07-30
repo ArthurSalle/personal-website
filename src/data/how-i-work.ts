@@ -6,7 +6,7 @@ export type HowIWorkStep = {
 };
 
 export const howIWorkIntro: LocalizedText = {
-  en: "I keep a close eye on how our tooling evolves and use AI code generation as leverage: shipping faster, and investing the time saved where it matters most, in the architecture, the product decisions and the business stakes.",
+  en: "I keep a close eye on how our tooling evolves and use AI code generation as leverage: shipping faster, and investing the time saved where it matters most, in the architecture, the product decisions and the business outcomes.",
   fr: "Je suis de près l'évolution des outils du métier et je m'appuie sur la génération de code par IA comme levier : livrer plus vite, et investir le temps gagné là où il compte le plus, l'architecture, les décisions produit et les enjeux business.",
 };
 
