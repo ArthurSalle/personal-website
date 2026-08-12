@@ -4,6 +4,7 @@ import { Image } from "astro:assets";
 import profilePic from "@/assets/c-arthur.webp";
 import { getLocale, useTranslations } from "@/i18n/ui";
 import LinkButton from "./ui/link-button.astro";
+import ThemeToggle from "./ui/theme-toggle.astro";
 
 const locale = getLocale(Astro.currentLocale);
 const t = useTranslations(locale);
@@ -21,22 +22,22 @@ const t = useTranslations(locale);
         format="webp"
         loading="eager"
         fetchpriority="high"
-        class="aspect-square size-16 rounded-full border-2 object-cover shadow-xs shadow-zinc-500 select-none md:size-20"
+        class="aspect-square size-16 rounded-full border-2 object-cover select-none md:size-20"
       />
       <div class="font-manrope">
-        <h1 class="text-2xl font-medium text-zinc-100 md:text-3xl">
+        <h1 class="text-heading text-2xl font-medium md:text-3xl">
           Arthur Sallé
         </h1>
         <h2 class="text-muted md:text-lg">{t("header.role")}</h2>
         <span
-          class="mt-1.5 flex w-fit items-center gap-1.5 rounded-full border border-emerald-400/30 bg-emerald-400/10 px-2.5 py-0.5 text-xs font-medium text-emerald-400"
+          class="mt-1.5 flex w-fit items-center gap-1.5 rounded-full border border-emerald-600/30 bg-emerald-600/10 px-2.5 py-0.5 text-xs font-medium text-emerald-700 dark:border-emerald-400/30 dark:bg-emerald-400/10 dark:text-emerald-400"
         >
           <span class="relative flex size-2">
             <span
-              class="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"
+              class="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-75 dark:bg-emerald-400"
             ></span>
             <span
-              class="relative inline-flex size-2 rounded-full bg-emerald-400"
+              class="relative inline-flex size-2 rounded-full bg-emerald-500 dark:bg-emerald-400"
             ></span>
           </span>
           {t("header.available")}
@@ -46,16 +47,11 @@ const t = useTranslations(locale);
 
     <nav class="text-muted flex items-center justify-end gap-1 text-sm">
       <a
-        href="/"
-        class={`rounded px-1.5 py-0.5 transition-colors duration-200 hover:text-zinc-100 ${locale === "fr" ? "text-zinc-100" : ""}`}
-        >FR</a
+        href={locale === "fr" ? "/en/" : "/"}
+        class="hover:text-heading rounded px-1.5 py-0.5 transition-colors duration-200"
+        >{locale === "fr" ? "EN" : "FR"}</a
       >
-      <span aria-hidden="true" class="text-muted">/</span>
-      <a
-        href="/en/"
-        class={`rounded px-1.5 py-0.5 transition-colors duration-200 hover:text-zinc-100 ${locale === "en" ? "text-zinc-100" : ""}`}
-        >EN</a
-      >
+      <ThemeToggle />
     </nav>
   </div>
 

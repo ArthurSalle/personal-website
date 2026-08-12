@@ -22,6 +22,8 @@ export const ui = {
     "header.bio4":
       "I can work independently or join an existing team. I'm based in Angers and can also work in Nantes, Paris or remotely.",
     "header.bio5": "Got something in mind? Let's talk 🙂",
+    "theme.toLight": "Switch to light theme",
+    "theme.toDark": "Switch to dark theme",
     "stack.title": "Stack",
     "projects.title": "Projects",
     "projects.caseStudy": "Case study",
@@ -56,6 +58,8 @@ export const ui = {
     "header.bio4":
       "Je peux travailler seul ou rejoindre une équipe existante. Je suis basé à Angers, avec la possibilité de travailler à Nantes, Paris ou à distance.",
     "header.bio5": "Vous avez quelque chose en tête ? Discutons-en 🙂",
+    "theme.toLight": "Activer le thème clair",
+    "theme.toDark": "Activer le thème sombre",
     "stack.title": "Stack",
     "projects.title": "Projets",
     "projects.caseStudy": "Étude de cas",

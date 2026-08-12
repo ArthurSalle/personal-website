@@ -1,6 +1,4 @@
 ---
-import Arrow from "@/assets/arrow.svg";
-
 type Props = {
   href: string;
 };
@@ -12,8 +10,20 @@ const { href } = Astro.props;
   href={href}
   target="_blank"
   rel="noopener noreferrer"
-  class="font-manrope flex w-fit shrink-0 cursor-pointer items-center gap-1 rounded-full bg-zinc-800 px-2.5 py-1 text-sm font-medium text-zinc-100 transition-all duration-300 select-none hover:-translate-y-0.5 hover:bg-zinc-700"
+  class="font-manrope bg-surface text-heading hover:bg-surface-hover flex w-fit shrink-0 cursor-pointer items-center gap-1 rounded-full px-2.5 py-1 text-sm font-medium transition-all duration-300 select-none hover:-translate-y-0.5"
 >
   <slot />
-  <img src={Arrow.src} alt="" aria-hidden="true" class="size-3" />
+  <svg
+    aria-hidden="true"
+    class="size-3"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M13 5H19V11"></path>
+    <path d="M19 5L5 19"></path>
+  </svg>
 </a>

@@ -7,22 +7,24 @@ const t = useTranslations(locale);
 ---
 
 <div class="flex w-full max-w-xl flex-col gap-4">
-  <h2 class="font-manrope text-lg font-semibold text-white">{t("xp.title")}</h2>
+  <h2 class="font-manrope text-heading text-lg font-semibold">
+    {t("xp.title")}
+  </h2>
 
   <div class="flex flex-col gap-2">
     {
       experiences.map((xp) => (
-        <div class="flex flex-col gap-2 rounded-xl border border-zinc-800 p-4">
+        <div class="border-border flex flex-col gap-2 rounded-xl border p-4">
           <div class="flex justify-between gap-4">
             <div class="flex flex-col">
-              <span class="font-manrope font-medium text-zinc-100">
+              <span class="font-manrope text-heading font-medium">
                 {xp.role[locale]}
               </span>
               {xp.url ? (
                 <a
                   href={xp.url}
                   target="_blank"
-                  class="flex items-center gap-1 text-sm transition-colors duration-200 hover:text-zinc-100 [&_svg]:size-2.5 [&_svg]:stroke-zinc-400 [&_svg]:transition-colors [&_svg]:duration-200 hover:[&_svg]:stroke-zinc-100"
+                  class="hover:text-heading [&_svg]:stroke-body hover:[&_svg]:stroke-heading flex items-center gap-1 text-sm transition-colors duration-200 [&_svg]:size-2.5 [&_svg]:transition-colors [&_svg]:duration-200"
                 >
                   {xp.company}
                   <svg
@@ -48,7 +50,7 @@ const t = useTranslations(locale);
               <span>{xp.period[locale]}</span>
             </div>
           </div>
-          <p class="text-sm text-zinc-400">{xp.description[locale]}</p>
+          <p class="text-body text-sm">{xp.description[locale]}</p>
         </div>
       ))
     }

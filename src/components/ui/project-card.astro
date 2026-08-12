@@ -25,8 +25,8 @@ const glowStyle = `background: radial-gradient(120% 90% at 50% 0%, ${project.acc
 // Les captures sont cadrées comme un écran, les visuels carrés posés en tuile centrée
 const imageClass =
   project.preview === "art"
-    ? "absolute top-1/2 left-1/2 h-[78%] w-auto -translate-x-1/2 -translate-y-1/2 rounded-2xl object-contain shadow-2xl shadow-black/50 transition-transform duration-300 group-hover:scale-105"
-    : "absolute inset-x-5 top-5 h-[calc(100%-1.25rem)] w-[calc(100%-2.5rem)] rounded-t-sm border border-zinc-700/60 object-cover object-top shadow-2xl shadow-black/50 transition-transform duration-300 group-hover:-translate-y-1";
+    ? "absolute top-1/2 left-1/2 h-[78%] w-auto -translate-x-1/2 -translate-y-1/2 rounded-2xl object-contain shadow-2xl shadow-black/15 transition-transform duration-300 group-hover:scale-105 dark:shadow-black/50"
+    : "absolute inset-x-5 top-5 h-[calc(100%-1.25rem)] w-[calc(100%-2.5rem)] rounded-t-sm border border-border-strong/60 object-cover object-top shadow-2xl shadow-black/15 transition-transform duration-300 group-hover:-translate-y-1 dark:shadow-black/50";
 ---
 
 <a
@@ -36,7 +36,7 @@ const imageClass =
   class={`group flex flex-col gap-2 ${project.url ? "cursor-pointer" : "cursor-default"}`}
 >
   <div
-    class="relative h-44 overflow-hidden rounded-md border border-zinc-800 bg-zinc-900"
+    class="border-border bg-media relative h-44 overflow-hidden rounded-md border"
   >
     <div class="absolute inset-0" style={glowStyle}></div>
 
@@ -63,7 +63,7 @@ const imageClass =
   <div>
     <div class="flex items-baseline justify-between gap-2">
       <div class="flex items-baseline gap-2">
-        <h3 class="font-manrope font-medium text-zinc-100">{project.title}</h3>
+        <h3 class="font-manrope text-heading font-medium">{project.title}</h3>
         {
           project.label && (
             <Badge tone="neutral">
@@ -74,12 +74,12 @@ const imageClass =
       </div>
       {
         linkLabel && (
-          <span class="text-muted text-xs transition-colors duration-200 group-hover:text-zinc-300">
+          <span class="text-muted group-hover:text-heading text-xs transition-colors duration-200">
             {linkLabel} →
           </span>
         )
       }
     </div>
-    <p class="text-sm text-zinc-400">{project.description}</p>
+    <p class="text-body text-sm">{project.description}</p>
   </div>
 </a>

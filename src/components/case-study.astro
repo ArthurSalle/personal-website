@@ -5,6 +5,7 @@ import type { CaseStudy } from "@/data/projects";
 import { getLocale, useTranslations } from "@/i18n/ui";
 import Badge from "./ui/badge.astro";
 import LinkButton from "./ui/link-button.astro";
+import ThemeToggle from "./ui/theme-toggle.astro";
 
 type Props = {
   project: CaseStudy;
@@ -21,7 +22,7 @@ const enUrl = `/en/projects/${project.slug}/`;
 function renderLinks(text: string): string {
   return text.replace(
     /\[([^\]]+)\]\(([^)]+)\)/g,
-    '<a href="$2" target="_blank" rel="noopener noreferrer" class="text-zinc-300 underline underline-offset-2 transition-colors duration-200 hover:text-white">$1</a>',
+    '<a href="$2" target="_blank" rel="noopener noreferrer" class="text-heading underline underline-offset-2 transition-colors duration-200 hover:text-blue-500">$1</a>',
   );
 }
 ---
@@ -31,28 +32,23 @@ function renderLinks(text: string): string {
     <div class="flex items-center justify-between gap-4">
       <a
         href={homeUrl}
-        class="text-muted w-fit text-sm transition-colors duration-200 hover:text-zinc-100"
+        class="text-muted hover:text-heading w-fit text-sm transition-colors duration-200"
         >← {t("case.back")}</a
       >
 
       <nav class="text-muted flex items-center gap-1 text-sm">
         <a
-          href={frUrl}
-          class={`rounded px-1.5 py-0.5 transition-colors duration-200 hover:text-zinc-100 ${locale === "fr" ? "text-zinc-100" : ""}`}
-          >FR</a
+          href={locale === "fr" ? enUrl : frUrl}
+          class="hover:text-heading rounded px-1.5 py-0.5 transition-colors duration-200"
+          >{locale === "fr" ? "EN" : "FR"}</a
         >
-        <span aria-hidden="true" class="text-muted">/</span>
-        <a
-          href={enUrl}
-          class={`rounded px-1.5 py-0.5 transition-colors duration-200 hover:text-zinc-100 ${locale === "en" ? "text-zinc-100" : ""}`}
-          >EN</a
-        >
+        <ThemeToggle />
       </nav>
     </div>
 
     <div class="flex flex-col gap-1">
       <div class="flex flex-wrap items-center gap-3">
-        <h1 class="font-manrope text-2xl font-medium text-zinc-100 md:text-3xl">
+        <h1 class="font-manrope text-heading text-2xl font-medium md:text-3xl">
           {project.title}
         </h1>
         {project.label && <Badge tone="neutral">{project.label[locale]}</Badge>}
@@ -62,7 +58,7 @@ function renderLinks(text: string): string {
 
     {
       project.image && (
-        <div class="relative h-64 overflow-hidden rounded-md border border-zinc-800 bg-zinc-900">
+        <div class="border-border bg-media relative h-64 overflow-hidden rounded-md border">
           <div
             class="absolute inset-0"
             style={`background: radial-gradient(120% 90% at 50% 0%, ${project.accent}2e, transparent 65%);`}
@@ -76,8 +72,8 @@ function renderLinks(text: string): string {
             fetchpriority="high"
             class={
               project.preview === "art"
-                ? "absolute top-1/2 left-1/2 h-[78%] w-auto -translate-x-1/2 -translate-y-1/2 rounded-2xl object-contain shadow-2xl shadow-black/50"
-                : "absolute inset-x-8 top-8 h-[calc(100%-2rem)] w-[calc(100%-4rem)] rounded-t-sm border border-zinc-700/60 object-cover object-top shadow-2xl shadow-black/50"
+                ? "absolute top-1/2 left-1/2 h-[78%] w-auto -translate-x-1/2 -translate-y-1/2 rounded-2xl object-contain shadow-2xl shadow-black/15 dark:shadow-black/50"
+                : "border-border-strong/60 absolute inset-x-8 top-8 h-[calc(100%-2rem)] w-[calc(100%-4rem)] rounded-t-sm border object-cover object-top shadow-2xl shadow-black/15 dark:shadow-black/50"
             }
           />
         </div>
@@ -86,14 +82,14 @@ function renderLinks(text: string): string {
   </div>
 
   <section class="flex flex-col gap-2">
-    <h2 class="font-manrope text-lg font-semibold text-zinc-100">
+    <h2 class="font-manrope text-heading text-lg font-semibold">
       {t("case.context")}
     </h2>
     <p set:html={renderLinks(project.context[locale])} />
   </section>
 
   <section class="flex flex-col gap-2">
-    <h2 class="font-manrope text-lg font-semibold text-zinc-100">
+    <h2 class="font-manrope text-heading text-lg font-semibold">
       {t("case.role")}
     </h2>
     <p set:html={renderLinks(project.role[locale])} />
@@ -102,7 +98,7 @@ function renderLinks(text: string): string {
   {
     project.decisions && (
       <section class="flex flex-col gap-2">
-        <h2 class="font-manrope text-lg font-semibold text-zinc-100">
+        <h2 class="font-manrope text-heading text-lg font-semibold">
           {t("case.decisions")}
         </h2>
         <ul class="marker:text-muted flex list-disc flex-col gap-2 pl-5">
@@ -115,7 +111,7 @@ function renderLinks(text: string): string {
   }
 
   <section class="flex flex-col gap-2">
-    <h2 class="font-manrope text-lg font-semibold text-zinc-100">
+    <h2 class="font-manrope text-heading text-lg font-semibold">
       {t("case.highlights")}
     </h2>
     <ul class="marker:text-muted flex list-disc flex-col gap-2 pl-5">
@@ -128,7 +124,7 @@ function renderLinks(text: string): string {
   </section>
 
   <section class="flex flex-col gap-3">
-    <h2 class="font-manrope text-lg font-semibold text-zinc-100">
+    <h2 class="font-manrope text-heading text-lg font-semibold">
       {t("case.stack")}
     </h2>
     <div class="flex flex-wrap items-center gap-2 font-mono">

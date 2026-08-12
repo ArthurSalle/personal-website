@@ -1,26 +1,61 @@
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Anton&display=swap");
 @import "tailwindcss";
 
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+:root {
+  color-scheme: light;
+  --theme-page: #fafafa;
+  --theme-body: #52525b;
+  --theme-heading: #18181b;
+  --theme-muted: #71717a;
+  --theme-surface: #e8e8eb;
+  --theme-surface-hover: #d4d4d8;
+  --theme-border: #e4e4e7;
+  --theme-border-strong: #d4d4d8;
+  --theme-media: #f4f4f5;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --theme-page: #09090b;
+  --theme-body: #a1a1aa;
+  --theme-heading: #f4f4f5;
+  --theme-muted: #7d7d87;
+  --theme-surface: #303034;
+  --theme-surface-hover: #3f3f46;
+  --theme-border: #27272a;
+  --theme-border-strong: #3f3f46;
+  --theme-media: #18181b;
+}
+
 @layer base {
   html {
     @apply overscroll-none;
     @apply scroll-smooth;
   }
   * {
-    @apply border-zinc-200;
+    @apply border-border;
     @apply selection:bg-blue-400/50;
   }
   body {
-    @apply bg-zinc-950 text-zinc-400 antialiased;
+    @apply bg-page text-body antialiased;
+    transition:
+      background-color 200ms ease,
+      color 200ms ease;
   }
 }
 
-@theme {
+@theme inline {
   --font-manrope: "Manrope", sans-serif;
   --font-anton: "Anton", sans-serif;
-
-  /* Texte secondaire : 4.88:1 sur zinc-950, plus sombre que le corps de texte
-     (zinc-400) tout en passant le minimum WCAG AA. Remplace text-zinc-500,
-     qui plafonnait à 4.11:1. */
-  --color-muted: #7d7d87;
+  --color-page: var(--theme-page);
+  --color-body: var(--theme-body);
+  --color-heading: var(--theme-heading);
+  --color-muted: var(--theme-muted);
+  --color-surface: var(--theme-surface);
+  --color-surface-hover: var(--theme-surface-hover);
+  --color-border: var(--theme-border);
+  --color-border-strong: var(--theme-border-strong);
+  --color-media: var(--theme-media);
 }
