@@ -12,12 +12,16 @@ export const ui = {
       "Arthur Sallé, product engineer based in Angers, France. I design and ship products end-to-end, from the first workshop to production.",
     "header.role": "Product Engineer · Fullstack TypeScript",
     "header.available": "Available",
+    "header.greeting": "Hello 👋",
     "header.bio1":
-      "I design and ship products end-to-end, from the first workshop to production. I spend most of my time in fullstack TypeScript (React, tRPC, Expo), building marketplaces, payment flows and AI features that run in production. Based in Angers, France, I work on-site there, in Nantes or Paris, or fully remote.",
+      "I'm a freelance Product Engineer and I enjoy turning ideas into real products. Web apps, mobile apps, marketplaces or AI features, I can get involved from the earliest conversations and take a project all the way to production.",
     "header.bio2":
-      "I work solo or in a team, and I care as much about the product as the code. I'm also part of the collective",
-    "header.bio2b":
-      "where a designer, another developer and I ship products that are both well-crafted and business-driven.",
+      "I mostly work across the TypeScript stack with React, Expo, tRPC and PostgreSQL. I enjoy understanding the business behind a project, making the right product and technical decisions, and then getting hands-on with the code to bring it to life.",
+    "header.bio3":
+      "Every day, Claude Code, Codex and other AI tools help me move faster, test more ideas and keep learning.",
+    "header.bio4":
+      "I can work independently or join an existing team. I'm based in Angers and can also work in Nantes, Paris or remotely.",
+    "header.bio5": "Got something in mind? Let's talk 🙂",
     "stack.title": "Stack",
     "projects.title": "Projects",
     "projects.caseStudy": "Case study",
@@ -42,12 +46,16 @@ export const ui = {
       "Arthur Sallé, product engineer basé à Angers. Je conçois et livre des produits de bout en bout, du premier workshop jusqu'à la production.",
     "header.role": "Product Engineer · Fullstack TypeScript",
     "header.available": "Disponible",
+    "header.greeting": "Hello 👋",
     "header.bio1":
-      "Je conçois et livre des produits de bout en bout, du premier workshop jusqu'à la mise en production. Je passe l'essentiel de mon temps en fullstack TypeScript (React, tRPC, Expo), à construire des marketplaces, des parcours de paiement et des features IA qui tournent en production. Basé à Angers, j'interviens à Angers, Nantes, Paris ou en full remote.",
+      "Je suis Product Engineer freelance et j'aime transformer des idées en produits concrets. Applications web, apps mobiles, marketplaces ou fonctionnalités IA, je peux intervenir dès les premières discussions et accompagner le projet jusqu'à sa mise en production.",
     "header.bio2":
-      "Je travaille en solo ou en équipe, et le produit compte autant pour moi que le code. Je fais aussi partie du collectif",
-    "header.bio2b":
-      "où je livre des produits soignés et orientés business avec un designer et un autre développeur.",
+      "Je travaille surtout en fullstack TypeScript avec React, Expo, tRPC et PostgreSQL. J'aime comprendre le métier derrière un projet, réfléchir aux bons choix produit et techniques, puis mettre les mains dans le code pour donner vie à tout ça.",
+    "header.bio3":
+      "Au quotidien, Claude Code, Codex et d'autres outils d'IA m'aident à avancer plus vite, à tester davantage d'idées et à apprendre continuellement.",
+    "header.bio4":
+      "Je peux travailler seul ou rejoindre une équipe existante. Je suis basé à Angers, avec la possibilité de travailler à Nantes, Paris ou à distance.",
+    "header.bio5": "Vous avez quelque chose en tête ? Discutons-en 🙂",
     "stack.title": "Stack",
     "projects.title": "Projets",
     "projects.caseStudy": "Étude de cas",
