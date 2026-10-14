@@ -5,6 +5,7 @@ import type { CaseStudy } from "@/data/projects";
 import { getLocale, useTranslations } from "@/i18n/ui";
 import Badge from "./ui/badge.astro";
 import LinkButton from "./ui/link-button.astro";
+import StoreLinks from "./ui/store-links.astro";
 import ThemeToggle from "./ui/theme-toggle.astro";
 
 type Props = {
@@ -51,10 +52,18 @@ function renderLinks(text: string): string {
         <h1 class="font-manrope text-heading text-2xl font-medium md:text-3xl">
           {project.title}
         </h1>
-        {project.label && <Badge tone="neutral">{project.label[locale]}</Badge>}
+        {
+          project.label && (
+            <Badge>
+              <span class="font-mono">{project.label[locale]}</span>
+            </Badge>
+          )
+        }
       </div>
       <p class="text-muted md:text-lg">{project.tagline[locale]}</p>
     </div>
+
+    {project.stores && <StoreLinks stores={project.stores} />}
 
     {
       project.image && (

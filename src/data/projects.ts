@@ -4,7 +4,7 @@ import PepperPreview from "@/assets/c-pepper.png";
 import TeamzPreview from "@/assets/c-teamz.webp";
 import VigieIcon from "@/assets/c-vigie-icon.png";
 import VigiePreview from "@/assets/c-vigie.png";
-import WetennixPreview from "@/assets/c-wetennix.webp";
+import WetennixPreview from "@/assets/c-wetennix.png";
 import VoilaPreview from "@/assets/c-voila.webp";
 import type { ImageMetadata } from "astro";
 
@@ -14,6 +14,10 @@ export type CaseStudy = {
   slug: string;
   title: string;
   url?: string;
+  stores?: {
+    appStore: string;
+    googlePlay: string;
+  };
   image?: ImageMetadata;
   /** Rendu de l'image : capture encadrée (défaut) ou visuel posé en tuile */
   preview?: "screenshot" | "art";
@@ -32,6 +36,83 @@ export type CaseStudy = {
 };
 
 export const caseStudies: CaseStudy[] = [
+  {
+    slug: "wetennix",
+    title: "WeTennix",
+    url: "https://wetennix.com/",
+    stores: {
+      appStore:
+        "https://apps.apple.com/fr/app/wetennix-manager-tennis-atp/id6466630527",
+      googlePlay:
+        "https://play.google.com/store/apps/details?id=com.wetennix.fantasygame",
+    },
+    image: WetennixPreview,
+    accent: "#2563eb",
+    label: {
+      en: "iOS & Android",
+      fr: "iOS & Android",
+    },
+    tagline: {
+      en: "Fantasy tennis app, live on the App Store and Google Play",
+      fr: "Fantasy tennis, disponible sur l’App Store et Google Play",
+    },
+    context: {
+      en: "A fantasy tennis game: users build a team of real ATP/WTA players for real tournaments, apply bonuses, score points from real results and compete in leagues. Public product on mobile, admin console on web.",
+      fr: "Un fantasy game tennis : les utilisateurs composent une équipe de vrais joueurs ATP/WTA pour de vrais tournois, appliquent des bonus, marquent des points selon les résultats réels et s'affrontent en ligues. Produit grand public sur mobile, console admin sur web.",
+    },
+    role: {
+      en: "Complete takeover of an existing product, already live with its users: migrating the whole stack and the accounts, rebuilding the game logic, shipping a new mobile app and automating the tennis data ingestion. An end-to-end scope, from the database to the mobile app and its release on both stores. My first mobile app published on the App Store and Google Play.",
+      fr: "Reprise complète d'un produit existant, déjà en production avec ses utilisateurs : migration de toute la stack et des comptes, refonte de la logique de jeu, nouvelle app mobile et ingestion automatisée des données tennis. Un périmètre de bout en bout, de la base de données jusqu'à l'app mobile et sa publication sur les deux stores. Ma première app mobile publiée sur l’App Store et Google Play.",
+    },
+    decisions: {
+      en: [
+        "Project taken over from a Firebase V1 with an Ionic/Angular mobile app built on Capacitor, fully migrated to a Node, tRPC and PostgreSQL stack",
+        "Existing users carried over without friction: V1 accounts move to the new auth system with no password reset",
+        "Documented benchmarks of tennis data sources before choosing the scraping strategy",
+        "New version shipped to production: a new game mode, richer content and a monetization system",
+      ],
+      fr: [
+        "Projet repris d'une V1 Firebase avec une app mobile Ionic/Angular sous Capacitor, entièrement migré vers une stack Node, tRPC et PostgreSQL",
+        "Utilisateurs existants embarqués sans friction : les comptes de la V1 basculent vers le nouveau système d'auth sans reset de mot de passe",
+        "Benchmarks documentés des sources de données tennis avant de choisir la stratégie de scraping",
+        "Nouvelle version mise en production : nouveau mode de jeu, contenu enrichi et système de monétisation",
+      ],
+    },
+    highlights: {
+      en: [
+        "Monorepo with 4 apps (web, mobile, API, marketing) plus a Python scraper in production",
+        "Jobs, crons and scraping powering the tennis data ingestion",
+        "Real-time messaging within leagues, powered by WebSocket and Redis Pub/Sub",
+        "Mobile app built with Expo, deployed through EAS and available on the App Store and Google Play",
+        "Web deployed on Cloudflare Workers, API on Railway, tests colocated in 3 workspaces",
+      ],
+      fr: [
+        "Monorepo de 4 apps (web, mobile, API, marketing) plus un scraper Python en production",
+        "Jobs, crons et scraping pour l'ingestion des données tennis",
+        "Messagerie en temps réel au sein des ligues, via WebSocket et Redis Pub/Sub",
+        "App mobile Expo, déployée via EAS et disponible sur l’App Store et Google Play",
+        "Web déployé sur Cloudflare Workers, API sur Railway, tests colocalisés dans 3 workspaces",
+      ],
+    },
+    stack: [
+      "TypeScript",
+      "React",
+      "React Native",
+      "Expo",
+      "Hono",
+      "tRPC",
+      "Better Auth",
+      "Drizzle",
+      "PostgreSQL",
+      "Redis",
+      "WebSocket",
+      "Cloudflare",
+      "Railway",
+      "Stripe",
+      "RevenueCat",
+      "TypeSafe AI",
+    ],
+  },
   {
     slug: "dropshot-coaching",
     title: "Dropshot Coaching",
@@ -92,64 +173,6 @@ export const caseStudies: CaseStudy[] = [
     ],
   },
   {
-    slug: "wetennix",
-    title: "WeTennix",
-    image: WetennixPreview,
-    accent: "#facc15",
-    tagline: {
-      en: "Fantasy tennis game on web and mobile",
-      fr: "Fantasy game tennis sur web et mobile",
-    },
-    context: {
-      en: "A fantasy tennis game: users build a team of real ATP/WTA players for real tournaments, apply bonuses, score points from real results and compete in leagues. Public product on mobile, admin console on web.",
-      fr: "Un fantasy game tennis : les utilisateurs composent une équipe de vrais joueurs ATP/WTA pour de vrais tournois, appliquent des bonus, marquent des points selon les résultats réels et s'affrontent en ligues. Produit grand public sur mobile, console admin sur web.",
-    },
-    role: {
-      en: "Complete takeover of an existing product, already live with its users: migrating the whole stack and the accounts, rebuilding the game logic, shipping a new mobile app and automating the tennis data ingestion. An end-to-end scope, from the database to the mobile app.",
-      fr: "Reprise complète d'un produit existant, déjà en production avec ses utilisateurs : migration de toute la stack et des comptes, refonte de la logique de jeu, nouvelle app mobile et ingestion automatisée des données tennis. Un périmètre de bout en bout, de la base de données jusqu'à l'app mobile.",
-    },
-    decisions: {
-      en: [
-        "Project taken over from a Firebase V1 with an Ionic/Angular mobile app built on Capacitor, fully migrated to a Node, tRPC and PostgreSQL stack",
-        "Existing users carried over without friction: V1 accounts move to the new auth system with no password reset",
-        "Documented benchmarks of tennis data sources before choosing the scraping strategy",
-        "V2 now in development: a new game mode, richer content and a monetization system",
-      ],
-      fr: [
-        "Projet repris d'une V1 Firebase avec une app mobile Ionic/Angular sous Capacitor, entièrement migré vers une stack Node, tRPC et PostgreSQL",
-        "Utilisateurs existants embarqués sans friction : les comptes de la V1 basculent vers le nouveau système d'auth sans reset de mot de passe",
-        "Benchmarks documentés des sources de données tennis avant de choisir la stratégie de scraping",
-        "V2 en cours de développement : nouveau mode de jeu, contenu enrichi et système de monétisation",
-      ],
-    },
-    highlights: {
-      en: [
-        "Monorepo with 4 apps (web, mobile, API, marketing) plus a Python scraper in production",
-        "Jobs, crons and scraping powering the tennis data ingestion",
-        "Mobile app built with Expo, deployed through EAS",
-        "Web deployed on Cloudflare Workers, API on Railway, tests colocated in 3 workspaces",
-      ],
-      fr: [
-        "Monorepo de 4 apps (web, mobile, API, marketing) plus un scraper Python en production",
-        "Jobs, crons et scraping pour l'ingestion des données tennis",
-        "App mobile Expo, déployée via EAS",
-        "Web déployé sur Cloudflare Workers, API sur Railway, tests colocalisés dans 3 workspaces",
-      ],
-    },
-    stack: [
-      "TypeScript",
-      "React 19",
-      "TanStack Router",
-      "Expo",
-      "Hono",
-      "tRPC",
-      "Drizzle",
-      "Neon",
-      "Astro",
-      "Cloudflare",
-    ],
-  },
-  {
     slug: "teamz-tennis",
     title: "Teamz Tennis",
     url: "https://www.teamz-tennis.com/",
@@ -198,7 +221,7 @@ export const caseStudies: CaseStudy[] = [
     stack: [
       "TypeScript",
       "Bun",
-      "React 19",
+      "React",
       "tRPC",
       "Hono",
       "Drizzle",

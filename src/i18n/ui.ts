@@ -26,7 +26,6 @@ export const ui = {
     "theme.toDark": "Switch to dark theme",
     "stack.title": "Stack",
     "projects.title": "Projects",
-    "projects.caseStudy": "Case study",
     "how.title": "How I work",
     "xp.title": "Experiences",
     "case.context": "Context",
@@ -36,6 +35,8 @@ export const ui = {
     "case.stack": "Stack",
     "case.back": "Back",
     "case.visit": "Visit the project",
+    "case.appStore": "Download on the App Store",
+    "case.googlePlay": "Get it on Google Play",
     "contact.title": "Get in touch",
     "contact.text":
       "A project, an opportunity, or just want to talk? Book a slot, or",
@@ -62,7 +63,6 @@ export const ui = {
     "theme.toDark": "Activer le thème sombre",
     "stack.title": "Stack",
     "projects.title": "Projets",
-    "projects.caseStudy": "Étude de cas",
     "how.title": "Comment je travaille",
     "xp.title": "Expériences",
     "case.context": "Contexte",
@@ -72,6 +72,8 @@ export const ui = {
     "case.stack": "Stack",
     "case.back": "Retour",
     "case.visit": "Voir le projet",
+    "case.appStore": "Télécharger dans l’App Store",
+    "case.googlePlay": "Disponible sur Google Play",
     "contact.title": "Contact",
     "contact.text":
       "Un projet, une opportunité, ou juste envie d'échanger ? Réservez un créneau, ou",

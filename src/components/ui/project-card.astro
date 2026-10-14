@@ -15,10 +15,9 @@ type Project = {
 
 type Props = {
   project: Project;
-  linkLabel?: string;
 };
 
-const { project, linkLabel }: Props = Astro.props;
+const { project }: Props = Astro.props;
 const isExternal = project.url?.startsWith("http");
 const glowStyle = `background: radial-gradient(120% 90% at 50% 0%, ${project.accent}2e, transparent 65%);`;
 
@@ -66,16 +65,19 @@ const imageClass =
         <h3 class="font-manrope text-heading font-medium">{project.title}</h3>
         {
           project.label && (
-            <Badge tone="neutral">
-              <span class="text-xs">{project.label}</span>
+            <Badge>
+              <span class="font-mono text-xs">{project.label}</span>
             </Badge>
           )
         }
       </div>
       {
-        linkLabel && (
-          <span class="text-muted group-hover:text-heading text-xs transition-colors duration-200">
-            {linkLabel} →
+        project.url && (
+          <span
+            aria-hidden="true"
+            class="text-muted group-hover:text-heading shrink-0 text-xs transition-colors duration-200"
+          >
+            →
           </span>
         )
       }

@@ -1,0 +1,44 @@
+---
+import type { CaseStudy } from "@/data/projects";
+import { getLocale, useTranslations } from "@/i18n/ui";
+
+type Props = {
+  stores: NonNullable<CaseStudy["stores"]>;
+};
+
+const { stores }: Props = Astro.props;
+const t = useTranslations(getLocale(Astro.currentLocale));
+---
+
+<div class="flex flex-wrap items-center gap-2">
+  <a
+    href={stores.appStore}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="rounded-md transition-opacity hover:opacity-80"
+  >
+    <img
+      src="/store-badges/app-store-fr.svg"
+      alt={t("case.appStore")}
+      width="127"
+      height="40"
+      class="h-10 w-auto"
+      loading="lazy"
+    />
+  </a>
+  <a
+    href={stores.googlePlay}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="rounded-md transition-opacity hover:opacity-80"
+  >
+    <img
+      src="/store-badges/google-play-fr.webp"
+      alt={t("case.googlePlay")}
+      width="133"
+      height="40"
+      class="h-10 w-auto"
+      loading="lazy"
+    />
+  </a>
+</div>
