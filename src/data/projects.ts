@@ -30,6 +30,10 @@ export type CaseStudy = {
   tagline: LocalizedText;
   context: LocalizedText;
   role: LocalizedText;
+  metrics?: {
+    value: string;
+    label: LocalizedText;
+  }[];
   decisions?: LocalizedList;
   highlights: LocalizedList;
   stack: string[];
@@ -39,6 +43,20 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "wetennix",
     title: "WeTennix",
+    metrics: [
+      {
+        value: "6 300+",
+        label: { fr: "Comptes migrés", en: "Migrated accounts" },
+      },
+      {
+        value: "17 841",
+        label: { fr: "Matchs intégrés", en: "Matches integrated" },
+      },
+      {
+        value: "445",
+        label: { fr: "Tournois référencés", en: "Tournaments indexed" },
+      },
+    ],
     url: "https://wetennix.com/",
     stores: {
       appStore:
